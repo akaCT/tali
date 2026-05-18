@@ -472,8 +472,30 @@
       font-size: 20px;
       line-height: 1.6;
       color: var(--navy-700);
-      margin: 0 0 40px;
+      margin: 0 0 28px;
       max-width: 38ch;
+    }
+    .hero-credentials {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--navy-600);
+      margin: 0 0 22px;
+      max-width: 44ch;
+      padding-left: 18px;
+      border-left: 2px solid var(--sage-500);
+    }
+    .hero-principal {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      line-height: 1.55;
+      color: var(--sage-700, var(--sage-600));
+      margin: 0 0 36px;
+      max-width: 42ch;
     }
     .hero-meta {
       font-family: var(--font-body);
@@ -1224,6 +1246,15 @@
     }
     .about-prose p { margin: 0 0 20px; }
     .about-prose p:last-child { margin-bottom: 0; }
+    .about-prose .about-scope {
+      margin-top: 28px;
+      padding-top: 22px;
+      border-top: 1px solid var(--paper-200);
+      font-size: 16px;
+      color: var(--navy-500);
+      font-style: italic;
+      max-width: 56ch;
+    }
     .about-letter {
       max-width: 56ch;
       margin: 80px 0 0;
@@ -1556,6 +1587,16 @@
             happen, the message that has to land, the decision that cannot be
             revisited.
           </p>
+          <p class="hero-credentials">
+            Tali Mackay has counselled chief executives and boards through
+            Theranos&rsquo;s dissolution, Texas Health Presbyterian&rsquo;s Ebola
+            response, The Trevor Project&rsquo;s federal funding crisis, and a
+            dozen other defining engagements over twenty-five years.
+          </p>
+          <p class="hero-principal">
+            Principal-led. No account team. The person you read about here is
+            the person on every call.
+          </p>
           <div class="hero-meta">
             <span>Independent practice</span>
             <span class="hero-meta-dot"></span>
@@ -1804,7 +1845,7 @@
             </button>
             <div class="engagement-detail-wrap">
               <div class="engagement-detail">
-                <p>The engagement began through counsel and continued in-house: Tali joined Theranos as Senior Vice President of Corporate Communications and Investor Relations. The chief executive was surrounded by men, performing a CEO archetype she had partly constructed &mdash; the black turtlenecks, the veganism, the on-camera stoicism. The work was to separate the company&rsquo;s intellectual property and substance from the founder&rsquo;s persona so the technology could be evaluated independently of the cult-of-CEO narrative she had cultivated; to help her build the executive team a regulated diagnostics company actually required; and to counsel her, in plain language, on the operational basics most consultants will not touch.</p>
+                <p>Tali joined Theranos as Senior Vice President of Corporate Communications and Investor Relations, 2016&ndash;2018. The chief executive was surrounded by men, performing a CEO archetype she had partly constructed &mdash; the black turtlenecks, the veganism, the on-camera stoicism. The work was to separate the company&rsquo;s intellectual property and substance from the founder&rsquo;s persona so the technology could be evaluated independently of the cult-of-CEO narrative she had cultivated; to help her build the executive team a regulated diagnostics company actually required; and to counsel her, in plain language, on the operational basics most consultants will not touch.</p>
                 <p class="lift">We sat with the chief executive and recommended she step down. She did not. We stayed for the two hundred employees, who needed to remain employable when the company ended.</p>
                 <p>Fortress Investment Group&rsquo;s acquisition of the Theranos IP &mdash; sixty-five million dollars &mdash; permanently separated the technology&rsquo;s substance from the founder&rsquo;s prosecution. It is the outcome that survives the legal verdict, and the proof that there was real intellectual property and technology inside the company that the prevailing narrative could not see.</p>
               </div>
@@ -1899,7 +1940,7 @@
             </button>
             <div class="engagement-detail-wrap">
               <div class="engagement-detail">
-                <p>The exception to the firm&rsquo;s working belief that most crises stem from mistake rather than intent: franchise operators in this network were not unwittingly involved &mdash; they were active participants. The corporate parent was institutionally horrified; its franchise model gave it indirect operational control of the locations where the activity was occurring. The principal communications task was to hold an honest, accurate picture &mdash; of where the failure originated, of the parent&rsquo;s response, and of the parent&rsquo;s commitment to its broader anti-trafficking posture.</p>
+                <p>An outlier in our typical engagement pattern: operators inside this franchise network were not unwittingly involved. The corporate parent was institutionally horrified; its franchise model gave it indirect operational control of the locations where the activity was occurring. The principal communications task was to hold an honest, accurate picture &mdash; of where the failure originated, of the parent&rsquo;s response, and of the parent&rsquo;s commitment to its broader anti-trafficking posture.</p>
               </div>
             </div>
           </div>
@@ -1952,10 +1993,16 @@
         </div>
 
         <p class="engagements-foot reveal">
-          Tali has led or co-led each of these matters across Hill+Knowlton
+          Each of these matters was led or co-led inside Hill+Knowlton
           Strategies, Theranos (in-house), Maple Ridge Strategies, Rubenstein,
-          and her current independent practice. Where a client is not named,
+          and the current independent practice. Where a client is not named,
           the choice is theirs.
+        </p>
+        <p class="engagements-foot reveal" data-delay="1">
+          Engagements are listed at the practitioner&rsquo;s discretion based on
+          matters already in the public record. Former clients with concerns
+          about specific characterizations are invited to contact the firm;
+          entries may be revised or removed at client request.
         </p>
       </div>
     </section>
@@ -1992,8 +2039,8 @@
         <svg class="pullquote-glyph" id="pullquoteGlyph" viewBox="0 0 56 28" aria-hidden="true">
           <path d="M8 22 C 8 12, 12 6, 22 4 M30 22 C 30 12, 34 6, 44 4" />
         </svg>
-        <p class="pullquote-body" id="pullquoteBody" data-text="Most people in a crisis are not acting in bad faith. They are unprepared, watched, and trying to do the right thing in front of an audience. |That is where we step in."></p>
-        <p class="pullquote-attr reveal" data-delay="2">One of the firm&rsquo;s working beliefs.</p>
+        <p class="pullquote-body" id="pullquoteBody" data-text="We sat with the chief executive and recommended she step down. She did not. |We stayed for the two hundred employees, who needed to remain employable when the company ended."></p>
+        <p class="pullquote-attr reveal" data-delay="2">How we showed up. Theranos, 2016&ndash;2018.</p>
       </div>
     </section>
 
@@ -2029,6 +2076,11 @@
             That belief shapes how she shows up: calmly, honestly, and almost
             always early. She works from Los Angeles, by referral, and chooses
             her engagements one at a time.
+          </p>
+          <p class="reveal about-scope" data-delay="5">
+            Engagements are scoped per situation; most are project-based with
+            a defined endpoint. The senior counsel you hire is the senior
+            counsel on every call.
           </p>
         </div>
         <p class="about-letter reveal" data-delay="5">
