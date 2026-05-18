@@ -1046,6 +1046,60 @@
       margin: 24px 0;
       max-width: 56ch;
     }
+    /* Abstracted situations list (replaces named-case accordion).
+       Quieter than the accordion: no expand affordance, just a typed list. */
+    .situations-list {
+      border-top: 1px solid var(--navy-600);
+    }
+    .situation {
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      gap: 32px;
+      padding: 28px 28px;
+      border-bottom: 1px solid var(--paper-200);
+      align-items: baseline;
+      position: relative;
+    }
+    .situation::before {
+      content: "";
+      position: absolute;
+      left: 0; top: 50%;
+      transform: translateY(-50%);
+      width: 0; height: 70%;
+      background: var(--sage-500);
+      transition: width 380ms cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+    .situation:hover::before { width: 4px; }
+    .situation-num {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: 14px;
+      letter-spacing: 0.22em;
+      color: var(--sage-700);
+    }
+    .situation-title {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: 22px;
+      letter-spacing: -0.012em;
+      color: var(--navy-700);
+      margin: 0 0 8px;
+      line-height: 1.3;
+      text-wrap: balance;
+    }
+    .situation-body p {
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--navy-500);
+      margin: 0;
+      max-width: 60ch;
+    }
+    @media (max-width: 760px) {
+      .situation { grid-template-columns: 40px 1fr; gap: 18px; padding: 22px 0; }
+      .situation-title { font-size: 19px; }
+    }
+
     .engagements-foot {
       margin-top: 56px;
       padding-top: 28px;
@@ -1780,232 +1834,104 @@
       <div class="container">
         <div class="engagements-header">
           <div>
-            <span class="eyebrow reveal"><span class="eyebrow-diamond"></span>Case studies</span>
-            <h2 class="section-h2 reveal" data-delay="1">A few situations<br>we have <span class="italic-accent">worked</span> through.</h2>
+            <span class="eyebrow reveal"><span class="eyebrow-diamond"></span>Where we work</span>
+            <h2 class="section-h2 reveal" data-delay="1">The shape<br>of the <span class="italic-accent">work</span>.</h2>
           </div>
           <p class="section-lede reveal" data-delay="2">
-            Drawn from 25 years across major agencies, in-house leadership at
-            Theranos, and independent practice. Some are public record; others
-            are described by category because the people involved deserve that
-            discretion.
+            25 years of practice, described by typology rather than by client. The
+            institutions and the people inside them deserve that discretion.
+            Detailed case studies and references are available on request to
+            qualified prospects.
           </p>
         </div>
 
-        <div class="engagements-filters reveal" data-delay="3" role="tablist" aria-label="Filter case studies">
-          <button class="filter-btn active" data-filter="all"><span>All</span></button>
-          <button class="filter-btn" data-filter="Crisis"><span>Crisis</span></button>
-          <button class="filter-btn" data-filter="Issues"><span>Issues</span></button>
-          <button class="filter-btn" data-filter="Transformation"><span>Transformation</span></button>
-          <button class="filter-btn" data-filter="Advocacy"><span>Advocacy</span></button>
-        </div>
+        <div class="situations-list reveal" data-delay="3">
 
-        <div class="engagements-list reveal" data-delay="4" id="engagementsList">
-
-          <div class="engagement" data-category="Crisis">
-            <button class="engagement-summary" type="button" aria-expanded="false">
-              <span class="engagement-rule"></span>
-              <span class="engagement-num">I</span>
-              <span class="engagement-client">Texas Health Presbyterian</span>
-              <span class="engagement-matter">First U.S. Ebola case, institutional response</span>
-              <span class="engagement-toggle" aria-hidden="true">&rsaquo;</span>
-            </button>
-            <div class="engagement-detail-wrap">
-              <div class="engagement-detail">
-                <p>A man returning to Dallas from a funeral in Liberia presented at the emergency room with symptoms consistent with both Ebola and acute intoxication. The on-shift physician, employed by a temp agency rather than the hospital, discharged him. He infected family members at home and died. The press pointed at the hospital as incompetent and indifferent; the hospital pointed at the temp-agency staffing model and at Epic, the records vendor; the CDC&rsquo;s guidance on community-hospital Ebola containment was, at that point, manifestly inadequate.</p>
-                <p>We located the human story: a Liberian community&rsquo;s funeral practices, the patient&rsquo;s intoxication confounding the differential diagnosis, a temp-agency physician not integrated into the hospital&rsquo;s protocols. We rallied the hospital&rsquo;s own employees as the most credible defenders of its competence. The coverage turned. The CDC subsequently restructured the national response architecture for high-consequence infectious disease, designating a single hospital in Nebraska as the country&rsquo;s containment site.</p>
-                <p class="lift">When the press is looking for someone to blame, the people inside the institution are usually the most credible defenders, and the most overlooked. We named them and put them on the record.</p>
-              </div>
+          <article class="situation">
+            <div class="situation-num">I</div>
+            <div class="situation-body">
+              <h3 class="situation-title">First-of-its-kind public-health emergencies.</h3>
+              <p>When an institution becomes the focal point of a national health story it did not choose, the work runs through the people inside the building who have not been asked.</p>
             </div>
-          </div>
+          </article>
 
-          <div class="engagement" data-category="Transformation">
-            <button class="engagement-summary" type="button" aria-expanded="false">
-              <span class="engagement-rule"></span>
-              <span class="engagement-num">II</span>
-              <span class="engagement-client">The Trevor Project</span>
-              <span class="engagement-matter">CEO termination, organizational restructure, and federal funding crisis</span>
-              <span class="engagement-toggle" aria-hidden="true">&rsaquo;</span>
-            </button>
-            <div class="engagement-detail-wrap">
-              <div class="engagement-detail">
-                <p>When a caller dials 988 and identifies as LGBTQ-plus youth, they are routed to The Trevor Project. Under the second Trump administration, the federal funding stream underwriting that routing was at risk and was ultimately pulled. The organization was simultaneously transitioning chief executives.</p>
-                <p>We worked with the outgoing and incoming chief executives to articulate, for federal stakeholders and the broader donor community, why LGBTQ-plus youth present clinically as a distinct caller population whose suicide threats progress differently. We coordinated media, public advocacy, and the organization&rsquo;s Washington public-affairs team to make the case on substantive grounds rather than identity-politics grounds. We held the organization together through the chief-executive transition that overlapped the funding fight.</p>
-                <p class="lift">You build the narrative that makes a $50 million donor see you before the federal funding goes away. The work is invisible until the funding is gone. Then it is the only thing standing between the mission and its end.</p>
-              </div>
+          <article class="situation">
+            <div class="situation-num">II</div>
+            <div class="situation-body">
+              <h3 class="situation-title">Founder-led companies through dissolution.</h3>
+              <p>When the public narrative has hardened, the intellectual property still has value, and the workforce still needs to land somewhere. The work continues for the people inside, even when the company will not.</p>
             </div>
-          </div>
+          </article>
 
-          <div class="engagement" data-category="Crisis">
-            <button class="engagement-summary" type="button" aria-expanded="false">
-              <span class="engagement-rule"></span>
-              <span class="engagement-num">III</span>
-              <span class="engagement-client">Theranos</span>
-              <span class="engagement-matter">Executive counsel and employee-continuity strategy through corporate dissolution</span>
-              <span class="engagement-toggle" aria-hidden="true">&rsaquo;</span>
-            </button>
-            <div class="engagement-detail-wrap">
-              <div class="engagement-detail">
-                <p>Tali joined Theranos as Senior Vice President of Corporate Communications and Investor Relations, 2016&ndash;2018. The chief executive was surrounded by men, performing a CEO archetype she had partly constructed: the black turtlenecks, the veganism, the on-camera stoicism. The work was to separate the company&rsquo;s intellectual property from the founder&rsquo;s persona so the technology could be evaluated independently of the cult-of-CEO narrative she had cultivated. To help her build the executive team a regulated diagnostics company actually required. To counsel her, in plain language, on the operational basics most consultants will not touch.</p>
-                <p class="lift">We sat with the chief executive and recommended she step down. She did not. We stayed for the 200 employees, who needed to remain employable when the company ended.</p>
-                <p>Fortress Investment Group&rsquo;s acquisition of the Theranos IP, $65 million, permanently separated the technology&rsquo;s substance from the founder&rsquo;s prosecution. It is the outcome that survives the verdict, and the proof that real intellectual property existed inside the company that the prevailing narrative could not see.</p>
-              </div>
+          <article class="situation">
+            <div class="situation-num">III</div>
+            <div class="situation-body">
+              <h3 class="situation-title">National nonprofits through political pressure.</h3>
+              <p>When federal funding is at risk and a chief executive is changing at the same time. The mission has to hold through both.</p>
             </div>
-          </div>
+          </article>
 
-          <div class="engagement" data-category="Issues">
-            <button class="engagement-summary" type="button" aria-expanded="false">
-              <span class="engagement-rule"></span>
-              <span class="engagement-num">IV</span>
-              <span class="engagement-client">American Cancer Society</span>
-              <span class="engagement-matter">Donor-affiliation strategy; cancer-screening recommendations</span>
-              <span class="engagement-toggle" aria-hidden="true">&rsaquo;</span>
-            </button>
-            <div class="engagement-detail-wrap">
-              <div class="engagement-detail">
-                <p>Several of the Society&rsquo;s major retail donor partners maintain in-store fundraising for cancer research while continuing to sell cigarettes. One internal and external constituency held that the Society should refuse the money on principle. Another held that the money should be taken precisely because the donor&rsquo;s other business causes the disease the Society fights.</p>
-                <p>We positioned the question around the destination of the funds rather than the source. Where the money goes is the relevant moral test, not where it comes from. The Society&rsquo;s scientific and medical authority remained the asset that mattered most, ahead of the donor-purity argument. The affiliations continued; the authority held.</p>
-              </div>
+          <article class="situation">
+            <div class="situation-num">IV</div>
+            <div class="situation-body">
+              <h3 class="situation-title">Corporate citizenship under scrutiny.</h3>
+              <p>Donor partnerships that look uncomfortable from outside. The question moves from where the money comes from to where it goes.</p>
             </div>
-          </div>
+          </article>
 
-          <div class="engagement" data-category="Crisis">
-            <button class="engagement-summary" type="button" aria-expanded="false">
-              <span class="engagement-rule"></span>
-              <span class="engagement-num">V</span>
-              <span class="engagement-client">Skydance Media</span>
-              <span class="engagement-matter">Controversial executive integration into the animation studio</span>
-              <span class="engagement-toggle" aria-hidden="true">&rsaquo;</span>
-            </button>
-            <div class="engagement-detail-wrap">
-              <div class="engagement-detail">
-                <p>An acknowledged dominant figure in commercial animation joined the studio after departing his previous post under Me Too-era allegations. The pressure was not outside the building. It was inside, from an animation team inclined to read the hire skeptically.</p>
-                <p>We counseled inside the building rather than outside it. We recommended elevating a respected woman on the existing team, signaling that the addition would not displace the team&rsquo;s talent path. We recommended a structure that did not place the new hire over direct reports. We built manager talking points and worked with the press to surface stories about the craft and the team&rsquo;s expanded ambition, rather than press about personal history. The friction came off the hire. The workforce stayed.</p>
-              </div>
+          <article class="situation">
+            <div class="situation-num">V</div>
+            <div class="situation-body">
+              <h3 class="situation-title">Controversial executive integration.</h3>
+              <p>When the pressure on a hire is inside the building, not outside it. The work is the team&rsquo;s talent path, not the press cycle.</p>
             </div>
-          </div>
+          </article>
 
-          <div class="engagement" data-category="Advocacy">
-            <button class="engagement-summary" type="button" aria-expanded="false">
-              <span class="engagement-rule"></span>
-              <span class="engagement-num">VI</span>
-              <span class="engagement-client">St. Jude Children&rsquo;s Research Hospital</span>
-              <span class="engagement-matter">Parent and patient activism response</span>
-              <span class="engagement-toggle" aria-hidden="true">&rsaquo;</span>
-            </button>
-            <div class="engagement-detail-wrap">
-              <div class="engagement-detail">
-                <p>The institution&rsquo;s marketing has long promised families they will not pay for their child&rsquo;s cancer treatment. The narrow promise is true. A small but vocal cohort of parents construed the promise more broadly (mortgages, household expenses, cell-phone bills) and brought their grievance public. The institution&rsquo;s billion-dollar-a-year fundraising apparatus was at risk.</p>
-                <p>We refined the marketing language so the promise was specific and accurate. We mobilized the institution&rsquo;s most credible witnesses, families whose children had been treated successfully, to engage directly with the disgruntled families and the surrounding press cycle. The crisis resolved within months. The fundraising apparatus held.</p>
-              </div>
+          <article class="situation">
+            <div class="situation-num">VI</div>
+            <div class="situation-body">
+              <h3 class="situation-title">Loud-minority activism.</h3>
+              <p>When a small but vocal cohort makes a long-tenured promise public. The work refines the promise and mobilizes the credible witnesses who have lived inside it.</p>
             </div>
-          </div>
+          </article>
 
-          <div class="engagement" data-category="Crisis">
-            <button class="engagement-summary" type="button" aria-expanded="false">
-              <span class="engagement-rule"></span>
-              <span class="engagement-num">VII</span>
-              <span class="engagement-client">Commonwealth of Puerto Rico</span>
-              <span class="engagement-matter">Zika virus outbreak, tourism economy defense</span>
-              <span class="engagement-toggle" aria-hidden="true">&rsaquo;</span>
-            </button>
-            <div class="engagement-detail-wrap">
-              <div class="engagement-detail">
-                <p>Zika threatened the territory&rsquo;s tourism economy. We worked with the Commonwealth&rsquo;s government and its tourism board on a public-health education campaign across U.S. and Caribbean media. The message was clinical: Zika presented an acute risk principally to pregnant travelers, and specific precautions allowed all other tourists to visit safely. The tourism economy held through the peak-coverage window.</p>
-              </div>
+          <article class="situation">
+            <div class="situation-num">VII</div>
+            <div class="situation-body">
+              <h3 class="situation-title">Public-health risk to a dependent economy.</h3>
+              <p>Tourism, hospitality, and the precision of clinical communication when an economy turns on whether the message lands right.</p>
             </div>
-          </div>
+          </article>
 
-          <div class="engagement" data-category="Crisis">
-            <button class="engagement-summary" type="button" aria-expanded="false">
-              <span class="engagement-rule"></span>
-              <span class="engagement-num">VIII</span>
-              <span class="engagement-client">Target</span>
-              <span class="engagement-matter">Data-breach response and in-store pharmacy transition</span>
-              <span class="engagement-toggle" aria-hidden="true">&rsaquo;</span>
-            </button>
-            <div class="engagement-detail-wrap">
-              <div class="engagement-detail">
-                <p>Communications counsel through the credit-card breach response. Then the pharmacy strategy work: closure of Target-operated in-store pharmacies, transition of the customer base to CVS-operated pharmacies, pharmacist-side communications through termination and rehire. The kind of work that matters because it does not become a crisis.</p>
-              </div>
+          <article class="situation">
+            <div class="situation-num">VIII</div>
+            <div class="situation-body">
+              <h3 class="situation-title">Federal regulatory scrutiny of consumer brands.</h3>
+              <p>FTC, FDA, and the press cycle that runs alongside the action.</p>
             </div>
-          </div>
+          </article>
 
-          <div class="engagement" data-category="Crisis">
-            <button class="engagement-summary" type="button" aria-expanded="false">
-              <span class="engagement-rule"></span>
-              <span class="engagement-num">IX</span>
-              <span class="engagement-client">A national hotel group</span>
-              <span class="engagement-matter">Human- and sex-trafficking response across the franchise network</span>
-              <span class="engagement-toggle" aria-hidden="true">&rsaquo;</span>
-            </button>
-            <div class="engagement-detail-wrap">
-              <div class="engagement-detail">
-                <p>An outlier in our typical engagement pattern: operators inside this franchise network were not unwittingly involved. The corporate parent was institutionally horrified; its franchise model gave it indirect operational control of the locations where the activity was occurring. The communications task was to hold an honest picture of where the failure originated, what the parent was doing about it, and what its broader anti-trafficking posture would actually defend.</p>
-              </div>
+          <article class="situation">
+            <div class="situation-num">IX</div>
+            <div class="situation-body">
+              <h3 class="situation-title">Operational communications through structural change.</h3>
+              <p>Data breaches, leadership transitions, terminations, and regulatory matters in regulated industries. The kind of work that matters because it does not become a crisis.</p>
             </div>
-          </div>
-
-          <div class="engagement" data-category="Crisis">
-            <button class="engagement-summary" type="button" aria-expanded="false">
-              <span class="engagement-rule"></span>
-              <span class="engagement-num">X</span>
-              <span class="engagement-client">A regional utility</span>
-              <span class="engagement-matter">Natural-gas leak response</span>
-              <span class="engagement-toggle" aria-hidden="true">&rsaquo;</span>
-            </button>
-            <div class="engagement-detail-wrap">
-              <div class="engagement-detail">
-                <p>Sustained natural-gas leak with community-health implications. Crisis response on behalf of the utility, coordinated across regulators, displaced households, and the local press cycle.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="engagement" data-category="Issues">
-            <button class="engagement-summary" type="button" aria-expanded="false">
-              <span class="engagement-rule"></span>
-              <span class="engagement-num">XI</span>
-              <span class="engagement-client">POM Wonderful</span>
-              <span class="engagement-matter">Health-claims defense through FTC and FDA scrutiny</span>
-              <span class="engagement-toggle" aria-hidden="true">&rsaquo;</span>
-            </button>
-            <div class="engagement-detail-wrap">
-              <div class="engagement-detail">
-                <p>Communications strategy through the federal scrutiny of POM Wonderful&rsquo;s health-claims marketing. Regulatory pressure on one side, consumer brand on the other.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="engagement" data-category="Advocacy">
-            <button class="engagement-summary" type="button" aria-expanded="false">
-              <span class="engagement-rule"></span>
-              <span class="engagement-num">XII</span>
-              <span class="engagement-client">University of Washington School of Medicine</span>
-              <span class="engagement-matter">Strategic communications counsel</span>
-              <span class="engagement-toggle" aria-hidden="true">&rsaquo;</span>
-            </button>
-            <div class="engagement-detail-wrap">
-              <div class="engagement-detail">
-                <p>Strategic communications counsel to the medical school across reputation, recruitment, and academic-medical-center positioning.</p>
-              </div>
-            </div>
-          </div>
+          </article>
 
         </div>
 
         <p class="engagements-foot reveal">
-          These matters were led or co-led at Hill+Knowlton Strategies, Theranos
-          (in-house), Maple Ridge Strategies, Rubenstein, and the current
-          independent practice. Where a client is not named, the choice is theirs.
-        </p>
-        <p class="engagements-foot reveal" data-delay="1">
-          Engagements are listed at the practitioner&rsquo;s discretion based on
-          matters already in the public record. Former clients with concerns
-          about specific characterizations are invited to contact the firm;
-          entries may be revised or removed at client request.
+          These matters were led or co-led inside Hill+Knowlton Strategies,
+          in-house corporate roles, Maple Ridge Strategies, Rubenstein, and
+          the current independent practice. Specific case studies and references
+          are available on request to qualified prospects.
         </p>
       </div>
     </section>
 
+    <!-- Empty placeholder so the legacy expand/filter handlers below remain no-ops without throwing. -->
+    <div id="engagementsList" hidden aria-hidden="true"></div>
     <section class="marquee-section" aria-label="Engagement marquee">
       <span class="marquee-label">Clients we have worked with</span>
       <div class="marquee-track" id="marqueeTrack">
@@ -2039,7 +1965,7 @@
           <path d="M8 22 C 8 12, 12 6, 22 4 M30 22 C 30 12, 34 6, 44 4" />
         </svg>
         <p class="pullquote-body" id="pullquoteBody" data-text="We sat with the chief executive and recommended she step down. She did not. |We stayed for the 200 employees, who needed to remain employable when the company ended."></p>
-        <p class="pullquote-attr reveal" data-delay="2">How we showed up. Theranos, 2016&ndash;2018.</p>
+        <p class="pullquote-attr reveal" data-delay="2">How we show up.</p>
       </div>
     </section>
 
