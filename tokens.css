@@ -1,0 +1,381 @@
+/* =============================================================
+   Maple Ridge Advisors — Colors & Type
+   Sage + navy. Rounded humanist sans. Calm, warm, steady.
+   Derived from the supplied wordmark + monogram assets.
+   ============================================================= */
+
+/* ---------- Self-hosted fonts ----------
+   Outfit is the display family (matches the "Maple Ridge" wordmark — same
+   rounded humanist forms; same character on a, g, R).
+   Lato carries body and the "Advisors" subhead.
+   Mulish is preserved as an alternate display fallback.
+   All paths assume colors_and_type.css is loaded from the project root.
+   ============================================================= */
+
+@font-face {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('fonts/Outfit/Outfit[wght].ttf') format('truetype-variations'),
+       url('fonts/Outfit/Outfit[wght].ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: 200 1000;
+  font-display: swap;
+  src: url('fonts/Mulish/Mulish[wght].ttf') format('truetype-variations'),
+       url('fonts/Mulish/Mulish[wght].ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Mulish';
+  font-style: italic;
+  font-weight: 200 1000;
+  font-display: swap;
+  src: url('fonts/Mulish/Mulish-Italic[wght].ttf') format('truetype-variations'),
+       url('fonts/Mulish/Mulish-Italic[wght].ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('fonts/Lato/Lato-Light.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/Lato/Lato-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('fonts/Lato/Lato-Bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/Lato/Lato-Italic.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url('fonts/Lato/Lato-BoldItalic.ttf') format('truetype');
+}
+
+:root {
+  /* ---------- BRAND CORE (taken from the supplied lockup) ---------- */
+  --brand-navy:  #355573;   /* monogram, "Advisors" wordmark, primary body */
+  --brand-sage:  #93B49E;   /* "Maple Ridge" wordmark, accent */
+
+  /* ---------- Navy scale ----------
+     Built around #355573. Used for primary surfaces, body text,
+     the monogram, and all primary CTAs. */
+  --navy-900: #15243A;
+  --navy-800: #1E3450;
+  --navy-700: #284463;
+  --navy-600: #355573;   /* brand primary */
+  --navy-500: #4A6B89;
+  --navy-400: #6E89A4;
+  --navy-300: #9DB1C5;
+  --navy-200: #C7D3E0;
+  --navy-100: #E5ECF3;
+  --navy-50:  #F1F5FA;
+
+  /* ---------- Sage scale ----------
+     Built around #93B49E. Used as an accent and for soft surfaces —
+     never for body type. */
+  --sage-700: #5D7E68;
+  --sage-600: #779A82;
+  --sage-500: #93B49E;   /* brand accent */
+  --sage-400: #ADC4B5;
+  --sage-300: #C5D5CB;
+  --sage-200: #DDE6E1;
+  --sage-100: #EEF2EF;
+  --sage-50:  #F6F8F6;
+
+  /* ---------- Warm neutrals ----------
+     A soft cream-white system, not pure white. */
+  --paper-0:   #FFFFFF;
+  --paper-50:  #FBFAF7;   /* primary page bg — warm white */
+  --paper-100: #F4F2EC;   /* alt surface */
+  --paper-200: #E8E4D9;   /* hairline dividers on warm bg */
+  --paper-300: #CFC9BB;
+  --stone-400: #A7A293;
+  --stone-500: #76715F;   /* metadata */
+  --stone-600: #4F4B3D;
+  --ink-900:   #1F1E1A;   /* deepest text, used sparingly — body is navy */
+  --ink-950:   #0E0D0A;
+
+  /* ---------- Foreground / background tokens ----------
+     Use these in components — not raw scales. */
+  --bg:          var(--paper-50);
+  --bg-elev:     var(--paper-0);
+  --bg-soft:     var(--sage-50);
+  --bg-inverse:  var(--navy-600);
+  --bg-deep:     var(--navy-900);
+
+  --fg:          var(--navy-600);   /* primary text color is navy, not black */
+  --fg-strong:   var(--navy-800);
+  --fg-muted:    var(--stone-500);
+  --fg-subtle:   var(--stone-400);
+  --fg-inverse:  var(--paper-50);
+  --fg-on-navy:  #E5ECF3;
+  --fg-on-sage:  var(--navy-700);
+
+  --rule:        var(--paper-200);
+  --rule-strong: var(--navy-600);
+  --rule-on-navy: rgba(229, 236, 243, 0.18);
+
+  --accent:      var(--sage-500);
+  --accent-strong: var(--sage-600);
+  --accent-hover: var(--sage-600);
+
+  /* ---------- Semantic ---------- */
+  --signal-positive: var(--sage-600);
+  --signal-caution:  #C99A3B;     /* warm gold — sparingly */
+  --signal-critical: #B0563C;     /* terracotta — never bright red */
+  --signal-info:     var(--navy-500);
+
+  /* ---------- Type families ----------
+     Outfit is the display family — same rounded humanist energy as the
+     "Maple Ridge" wordmark. Lato carries body + the "Advisors" subhead.
+     Mulish is preserved as an alternate display fallback. */
+  --font-display: 'Outfit', 'Mulish', 'Avenir Next', system-ui, -apple-system, sans-serif;
+  --font-body:    'Lato', 'Source Sans 3', 'Helvetica Neue', system-ui, -apple-system, sans-serif;
+  --font-mono:    ui-monospace, 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+
+  /* ---------- Type scale ---------- */
+  --fs-display-1: clamp(56px, 7vw, 104px);
+  --fs-display-2: clamp(40px, 5vw, 72px);
+  --fs-h1:        clamp(34px, 3.4vw, 52px);
+  --fs-h2:        clamp(26px, 2.4vw, 36px);
+  --fs-h3:        22px;
+  --fs-h4:        18px;
+  --fs-lede:      21px;
+  --fs-body:      17px;
+  --fs-body-sm:   15px;
+  --fs-meta:      13px;
+  --fs-micro:     11px;       /* tracked all-caps labels — matches "Advisors" */
+
+  --lh-tight:   1.05;
+  --lh-display: 1.08;
+  --lh-heading: 1.2;
+  --lh-body:    1.65;
+  --lh-lede:    1.5;
+
+  --tracking-display: -0.012em;
+  --tracking-eyebrow: 0.22em;       /* matches the spacing in "A D V I S O R S" */
+  --tracking-button:  0.04em;
+
+  /* ---------- Spacing (8pt grid) ---------- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+  --space-11: 192px;
+
+  /* ---------- Radii ----------
+     Brand reads rounded but not chunky. Most elements are 4–8px. */
+  --r-0: 0px;
+  --r-1: 4px;       /* default — inputs, small chips */
+  --r-2: 8px;       /* cards, buttons */
+  --r-3: 12px;      /* large surfaces, modals */
+  --r-pill: 999px;  /* tag chips, segmented controls */
+
+  /* ---------- Shadows ----------
+     Soft and low. Paper-like, not material-card. */
+  --shadow-0: none;
+  --shadow-1: 0 1px 0 0 rgba(21,36,58,0.04), 0 0 0 1px rgba(21,36,58,0.05);
+  --shadow-2: 0 2px 4px -1px rgba(21,36,58,0.06), 0 8px 16px -8px rgba(21,36,58,0.08);
+  --shadow-3: 0 12px 28px -12px rgba(21,36,58,0.18), 0 4px 10px -4px rgba(21,36,58,0.08);
+
+  /* ---------- Premium surface treatments ----------
+     "Inner highlight" — a 1px top-inset white at low opacity gives a paper-edge
+     feel, especially on warm-tinted cards. Combined with --shadow-2 = paper on paper.
+     "Letterpress" — an inset shadow at the bottom that makes type sit slightly into
+     the page. Used on dark navy CTAs for a pressed-metal feel. */
+  --inner-highlight:     inset 0 1px 0 0 rgba(255, 255, 255, 0.85);
+  --inner-highlight-soft: inset 0 1px 0 0 rgba(255, 255, 255, 0.55);
+  --inner-highlight-dark: inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+  --letterpress:         inset 0 -1px 0 0 rgba(0, 0, 0, 0.18);
+  --card-paper: var(--shadow-1), var(--inner-highlight);
+  --card-paper-hover: var(--shadow-2), var(--inner-highlight);
+
+  /* ---------- Grain & texture ----------
+     SVG noise via data URL. Drop in any background as a top layer. Sized 240px
+     so it doesn't read as a pattern. */
+  --grain: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' seed='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.6 0'/></filter><rect width='240' height='240' filter='url(%23n)'/></svg>");
+
+  /* ---------- Fading hairlines ----------
+     Rules that taper to transparent on both ends — the engraving feel. */
+  --rule-fade-h: linear-gradient(90deg, transparent 0%, var(--navy-600) 14%, var(--navy-600) 86%, transparent 100%);
+  --rule-fade-sage: linear-gradient(90deg, transparent 0%, var(--sage-500) 14%, var(--sage-500) 86%, transparent 100%);
+  --rule-fade-light: linear-gradient(90deg, transparent 0%, var(--paper-200) 14%, var(--paper-200) 86%, transparent 100%);
+
+  /* ---------- Premium gradients ----------
+     Used sparingly. Each one barely visible — luxury is restraint. */
+  --bg-paper-grad: linear-gradient(180deg, #FCFBF8 0%, #F7F4ED 100%);
+  --bg-navy-grad:  linear-gradient(180deg, #355573 0%, #284463 100%);
+  --bg-navy-deep:  linear-gradient(180deg, #284463 0%, #15243A 100%);
+  --bg-sage-soft:  linear-gradient(180deg, #F6F8F6 0%, #EEF2EF 100%);
+
+  /* ---------- Borders ---------- */
+  --border-hair:   1px solid var(--rule);
+  --border-strong: 1px solid var(--navy-600);
+  --border-on-navy: 1px solid var(--rule-on-navy);
+
+  /* ---------- Motion ---------- */
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-quick: 120ms;
+  --dur-base:  220ms;
+  --dur-considered: 480ms;
+
+  /* ---------- Max widths ---------- */
+  --measure-prose:  64ch;
+  --measure-narrow: 48ch;
+  --container:        1240px;
+  --container-narrow:  920px;
+}
+
+/* =============================================================
+   Semantic element styles
+   ============================================================= */
+
+html, body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.mra-eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--fs-micro);
+  font-weight: 700;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--navy-600);
+}
+
+.mra-display-1 {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: var(--fs-display-1);
+  line-height: var(--lh-display);
+  letter-spacing: var(--tracking-display);
+  color: var(--navy-600);
+  text-wrap: balance;
+}
+
+.mra-display-2 {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: var(--fs-display-2);
+  line-height: var(--lh-display);
+  letter-spacing: var(--tracking-display);
+  color: var(--navy-600);
+  text-wrap: balance;
+}
+
+.mra-h1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--fs-h1);
+  line-height: var(--lh-heading);
+  letter-spacing: -0.008em;
+  color: var(--navy-700);
+  text-wrap: balance;
+}
+
+.mra-h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--fs-h2);
+  line-height: var(--lh-heading);
+  letter-spacing: -0.006em;
+  color: var(--navy-700);
+  text-wrap: balance;
+}
+
+.mra-h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--fs-h3);
+  line-height: var(--lh-heading);
+  color: var(--navy-700);
+}
+
+.mra-h4 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: var(--fs-h4);
+  line-height: var(--lh-heading);
+  color: var(--navy-700);
+}
+
+.mra-lede {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--fs-lede);
+  line-height: var(--lh-lede);
+  color: var(--navy-700);
+  max-width: var(--measure-prose);
+  text-wrap: pretty;
+}
+
+.mra-body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--navy-600);
+  max-width: var(--measure-prose);
+  text-wrap: pretty;
+}
+
+.mra-meta {
+  font-family: var(--font-body);
+  font-size: var(--fs-meta);
+  color: var(--stone-500);
+  line-height: 1.5;
+}
+
+.mra-pull-quote {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(26px, 2.8vw, 36px);
+  line-height: 1.3;
+  letter-spacing: -0.006em;
+  color: var(--navy-700);
+  border-left: 2px solid var(--sage-500);
+  padding-left: var(--space-5);
+  max-width: 32ch;
+}
+
+.mra-rule { border-top: 1px solid var(--rule); }
+.mra-rule-sage { border-top: 1px solid var(--sage-500); }
+.mra-rule-strong { border-top: 1px solid var(--navy-600); }

@@ -1,0 +1,2464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Maple Ridge Advisors &mdash; Counsel for the worst day</title>
+  <meta name="description" content="Senior strategic-communications counsel for chief executives, boards, and general counsel. When the call comes, we are already preparing the next ninety days.">
+  <meta name="author" content="Maple Ridge Advisors">
+  <meta name="theme-color" content="#FBFAF7">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Counsel for the worst day.">
+  <meta property="og:description" content="Maple Ridge Advisors. Senior strategic-communications counsel for chief executives, boards, and general counsel. Crisis, transformation, M&A, reputation. By referral.">
+  <meta property="og:url" content="https://mapleridgeadvisors.com/">
+  <meta property="og:image" content="https://mapleridgeadvisors.com/og-index.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Counsel for the worst day.">
+  <meta name="twitter:description" content="Maple Ridge Advisors. Senior strategic-communications counsel for chief executives, boards, and general counsel. By referral.">
+  <meta name="twitter:image" content="https://mapleridgeadvisors.com/og-index.png">
+
+  <link rel="icon" type="image/png" href="assets/monogram.png">
+  <link rel="stylesheet" href="tokens.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Maple Ridge Advisors",
+    "description": "Senior strategic-communications counsel for chief executives, boards, and general counsel. Crisis, transformation, M&A, reputation.",
+    "url": "https://mapleridgeadvisors.com/",
+    "founder": {
+      "@type": "Person",
+      "name": "Tali Mackay",
+      "jobTitle": "Founder and Principal",
+      "sameAs": "https://www.linkedin.com/in/talimackay/"
+    },
+    "address": { "@type": "PostalAddress", "addressLocality": "Los Angeles", "addressRegion": "CA", "addressCountry": "US" },
+    "email": "tali@mapleridgeadvisors.com",
+    "serviceType": ["Executive communications","Crisis and issues management","Organizational change communications","Mergers and acquisitions communications","Thought leadership","Purpose and CSR","Advocacy and influence"]
+  }
+  </script>
+
+  <style>
+    /* =====================================================================
+       Maple Ridge Advisors — v2
+       Brand-locked palette + motion system. Awwwards-tier craft, no glow.
+       Inspired by 21st.dev motion patterns (magnetic, sticky-storyteller,
+       per-character reveal, infinite marquee, scroll-driven hairlines).
+       ===================================================================== */
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    html, body {
+      margin: 0; padding: 0;
+      background: var(--paper-50);
+      color: var(--navy-700);
+      font-family: var(--font-body);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    button { font: inherit; cursor: pointer; background: none; border: none; color: inherit; padding: 0; }
+    ::selection { background: var(--sage-200); color: var(--navy-800); }
+
+    /* Global paper grain */
+    body { position: relative; }
+    body::before {
+      content: "";
+      position: fixed; inset: 0;
+      background: var(--grain);
+      background-size: 240px 240px;
+      opacity: 0.04;
+      mix-blend-mode: multiply;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Standard browser cursor — custom cursor removed per CT feedback */
+
+    /* Page-load dossier curtain — fades up on a single wordmark before unmasking the hero.
+       Feels like opening a printed brief. Honors reduced-motion. */
+    .dossier-curtain {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: linear-gradient(180deg, #FBFAF7 0%, #F4F1E8 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      transition: opacity 900ms cubic-bezier(0.22, 0.61, 0.36, 1) 1300ms;
+    }
+    .dossier-curtain::before {
+      content: "";
+      position: absolute; inset: 0;
+      background: var(--grain);
+      background-size: 240px 240px;
+      opacity: 0.05;
+      mix-blend-mode: multiply;
+      pointer-events: none;
+    }
+    .dossier-curtain.lift { opacity: 0; }
+    .dossier-curtain.gone { display: none; }
+    .dossier-wordmark {
+      position: relative;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 1100ms cubic-bezier(0.22, 0.61, 0.36, 1), transform 1100ms cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+    .dossier-curtain.ready .dossier-wordmark { opacity: 1; transform: translateY(0); }
+    .dossier-wordmark .name {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: clamp(28px, 3.4vw, 42px);
+      letter-spacing: -0.008em;
+      color: var(--sage-600);
+      line-height: 1;
+    }
+    .dossier-wordmark .rule {
+      width: 0;
+      height: 1px;
+      background: var(--navy-600);
+      opacity: 0.5;
+      transition: width 900ms cubic-bezier(0.22, 0.61, 0.36, 1) 400ms;
+    }
+    .dossier-curtain.ready .dossier-wordmark .rule { width: 220px; }
+    .dossier-wordmark .sub {
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.36em;
+      text-transform: uppercase;
+      color: var(--navy-600);
+      opacity: 0;
+      transition: opacity 720ms cubic-bezier(0.22, 0.61, 0.36, 1) 900ms;
+    }
+    .dossier-curtain.ready .dossier-wordmark .sub { opacity: 1; }
+    @media (prefers-reduced-motion: reduce) {
+      .dossier-curtain { display: none; }
+    }
+
+    /* Reading progress hairline */
+    .progress-bar {
+      position: fixed;
+      top: 0; left: 0;
+      height: 1px;
+      width: 0%;
+      background: var(--navy-600);
+      z-index: 100;
+      opacity: 0.35;
+      transition: width 80ms linear, opacity 280ms var(--ease-out);
+      pointer-events: none;
+    }
+    .progress-bar::after {
+      content: "";
+      position: absolute;
+      right: -2px; top: -1px;
+      width: 4px; height: 3px;
+      background: var(--sage-500);
+    }
+
+    /* Manuscript margin hairline — supplementary to the top progress bar.
+       Feels like the margin line in a printed book. Grows from top down. */
+    .margin-rule {
+      position: fixed;
+      left: 24px; top: 0;
+      width: 1px;
+      height: 0;
+      max-height: 100vh;
+      background: linear-gradient(180deg, transparent 0%, var(--sage-500) 14%, var(--sage-500) 86%, transparent 100%);
+      opacity: 0;
+      z-index: 40;
+      pointer-events: none;
+      transition: opacity 600ms var(--ease-out), height 120ms linear;
+    }
+    .margin-rule.ready { opacity: 0.32; }
+    @media (max-width: 900px) { .margin-rule { display: none; } }
+    @media (prefers-reduced-motion: reduce) {
+      .margin-rule { transition: opacity 600ms var(--ease-out); }
+    }
+
+    /* Skip link */
+    .skip-link {
+      position: absolute;
+      left: -9999px; top: -9999px;
+      background: var(--navy-700); color: var(--paper-50);
+      padding: 12px 18px; border-radius: 6px;
+      font-family: var(--font-body); font-size: 13px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      z-index: 1000;
+    }
+    .skip-link:focus { left: 16px; top: 16px; }
+
+    /* Top nav */
+    .topnav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 90;
+      padding: 24px 0;
+      background: rgba(251, 250, 247, 0);
+      border-bottom: 1px solid rgba(53, 85, 115, 0);
+      transition: background 280ms var(--ease-out), border-color 280ms var(--ease-out), padding 280ms var(--ease-out);
+    }
+    .topnav.scrolled {
+      background: rgba(251, 250, 247, 0.92);
+      border-bottom: 1px solid var(--paper-200);
+      padding: 14px 0;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+    .topnav-inner {
+      max-width: 1320px; margin: 0 auto;
+      padding: 0 40px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 24px;
+    }
+    .topnav-lockup { display: inline-flex; align-items: center; gap: 14px; }
+    .topnav-mono { height: 32px; width: auto; transition: transform 480ms var(--ease-out); }
+    .topnav-lockup:hover .topnav-mono { transform: rotate(-3deg); }
+    .topnav-mark { display: inline-flex; flex-direction: column; line-height: 1; gap: 4px; }
+    .topnav-name {
+      font-family: var(--font-display); font-weight: 400; font-size: 19px;
+      color: var(--sage-600); letter-spacing: -0.005em;
+    }
+    .topnav-sub {
+      font-family: var(--font-body); font-weight: 700; font-size: 9px;
+      color: var(--navy-600); letter-spacing: 0.34em; text-transform: uppercase;
+    }
+    .topnav-links { display: flex; gap: 32px; align-items: center; }
+    .topnav-link {
+      font-family: var(--font-body); font-size: 13px; font-weight: 500;
+      color: var(--navy-600); letter-spacing: 0.02em;
+      position: relative; padding: 6px 0;
+    }
+    .topnav-link::after {
+      content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px;
+      background: var(--sage-500); transform: scaleX(0); transform-origin: left;
+      transition: transform 380ms var(--ease-out);
+    }
+    .topnav-link:hover::after,
+    .topnav-link.active::after { transform: scaleX(1); }
+    .topnav-cta {
+      font-family: var(--font-body);
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--navy-700);
+      border: 1px solid var(--navy-600);
+      padding: 11px 20px;
+      border-radius: 999px;
+      position: relative; overflow: hidden;
+      transition: color 380ms var(--ease-out), border-color 380ms var(--ease-out);
+    }
+    .topnav-cta::before {
+      content: ""; position: absolute; inset: 0;
+      background: var(--navy-600);
+      transform: translateY(100%);
+      transition: transform 480ms cubic-bezier(0.65, 0, 0.35, 1);
+      z-index: -1;
+    }
+    .topnav-cta:hover { color: var(--paper-50); border-color: var(--navy-700); }
+    .topnav-cta:hover::before { transform: translateY(0); }
+    .topnav-cta span { position: relative; z-index: 1; }
+
+    /* Section rail (left) */
+    .section-rail {
+      position: fixed;
+      left: 32px; top: 50%;
+      transform: translateY(-50%);
+      z-index: 50;
+      display: flex; flex-direction: column; gap: 16px;
+      padding: 18px 12px;
+      background: rgba(251, 250, 247, 0.55);
+      border: 1px solid rgba(53, 85, 115, 0.06);
+      border-radius: 999px;
+      opacity: 0;
+      transition: opacity 480ms var(--ease-out);
+    }
+    .section-rail.ready { opacity: 1; }
+    .rail-dot {
+      width: 6px; height: 6px;
+      border-radius: 999px;
+      background: var(--paper-300);
+      cursor: pointer;
+      position: relative;
+      transition: background 280ms var(--ease-out), transform 280ms var(--ease-out);
+    }
+    .rail-dot::after {
+      content: attr(data-label);
+      position: absolute;
+      left: 18px; top: 50%;
+      transform: translateY(-50%) translateX(-6px);
+      font-family: var(--font-body);
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--navy-600);
+      white-space: nowrap;
+      background: var(--paper-50);
+      padding: 4px 10px;
+      border-radius: 4px;
+      border: 1px solid var(--paper-200);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 220ms var(--ease-out), transform 280ms var(--ease-out);
+    }
+    .rail-dot:hover { background: var(--navy-500); }
+    .rail-dot:hover::after { opacity: 1; transform: translateY(-50%) translateX(0); }
+    .rail-dot.active { background: var(--navy-700); transform: scale(1.3); }
+    @media (max-width: 1280px) { .section-rail { display: none; } }
+
+    /* Containers */
+    .container { max-width: 1320px; margin: 0 auto; padding: 0 40px; }
+    .container-narrow { max-width: 880px; margin: 0 auto; padding: 0 40px; }
+    .container-mid { max-width: 1080px; margin: 0 auto; padding: 0 40px; }
+
+    /* Eyebrow ornament */
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      position: relative;
+      padding-top: 18px;
+      margin-bottom: 36px;
+      font-family: var(--font-body);
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--navy-600);
+    }
+    .eyebrow::before {
+      content: "";
+      position: absolute; top: 0; left: 0;
+      width: 0; height: 1px;
+      background: var(--navy-600);
+      transition: width 720ms cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+    .eyebrow.in-view::before { width: 260px; }
+    .eyebrow-diamond {
+      width: 7px; height: 7px;
+      background: var(--sage-500);
+      transform: rotate(0deg);
+      flex-shrink: 0;
+      transition: transform 720ms cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+    .eyebrow.in-view .eyebrow-diamond { transform: rotate(45deg); }
+
+    .italic-accent {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--sage-600);
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 720ms cubic-bezier(0.22, 0.61, 0.36, 1), transform 720ms cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+    .reveal.in-view { opacity: 1; transform: translateY(0); }
+    .reveal[data-delay="1"] { transition-delay: 80ms; }
+    .reveal[data-delay="2"] { transition-delay: 160ms; }
+    .reveal[data-delay="3"] { transition-delay: 240ms; }
+    .reveal[data-delay="4"] { transition-delay: 320ms; }
+    .reveal[data-delay="5"] { transition-delay: 400ms; }
+    .reveal[data-delay="6"] { transition-delay: 480ms; }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      padding: 200px 0 120px;
+      background:
+        radial-gradient(ellipse at 90% 80%, rgba(147, 180, 158, 0.10) 0%, transparent 60%),
+        linear-gradient(180deg, #FCFBF8 0%, #F7F3EA 100%);
+      overflow: hidden;
+      display: flex; align-items: center;
+    }
+    .hero-watermark {
+      position: absolute;
+      top: 50%; right: -8%;
+      transform: translateY(-50%) scale(0.96);
+      width: 720px;
+      opacity: 0;
+      pointer-events: none;
+      mask-image: radial-gradient(circle at 60% 50%, black 0%, transparent 72%);
+      -webkit-mask-image: radial-gradient(circle at 60% 50%, black 0%, transparent 72%);
+      transition: opacity 1600ms cubic-bezier(0.22, 0.61, 0.36, 1), transform 1600ms cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+    .hero-watermark.ready { opacity: 0.045; transform: translateY(-50%) scale(1); }
+    .hero-inner {
+      max-width: 1320px; margin: 0 auto;
+      padding: 0 40px; width: 100%;
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) 1px minmax(0, 0.85fr);
+      gap: 72px;
+      align-items: end;
+    }
+    .hero-divider {
+      align-self: stretch;
+      width: 1px;
+      background: linear-gradient(180deg, transparent 0%, var(--paper-300) 20%, var(--paper-300) 80%, transparent 100%);
+      margin-top: 80px;
+    }
+    .hero-eyebrow { margin-bottom: 56px; }
+    .hero-display {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(40px, 5.6vw, 88px);
+      line-height: 1.04;
+      letter-spacing: -0.018em;
+      color: var(--navy-700);
+      margin: 0;
+      text-wrap: balance;
+    }
+    /* Per-line mask wrap — the line itself is clipped, the characters slide up under it. */
+    .hero-line {
+      display: block;
+      overflow: hidden;
+      padding-bottom: 0.08em;
+      margin-bottom: -0.04em;
+      clip-path: inset(0 0 100% 0);
+      transition: clip-path 1200ms cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+    .hero-line.unmasked { clip-path: inset(0 0 0 0); }
+    .hero-line:nth-child(2) { transition-delay: 180ms; }
+    .char {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(0.6em);
+      transition: opacity 720ms cubic-bezier(0.22, 0.61, 0.36, 1), transform 720ms cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+    .char.shown { opacity: 1; transform: translateY(0); }
+    .word { display: inline-block; }
+    .hero-display .italic-accent {
+      display: inline-block;
+      position: relative;
+    }
+    /* Sage underline draws under the italic accent word once it lands. */
+    .hero-display .italic-accent::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0.02em;
+      height: 1px;
+      background: var(--sage-500);
+      transform: scaleX(0);
+      transform-origin: left;
+      opacity: 0.7;
+      transition: transform 1200ms cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+    .hero-display .italic-accent.underline-drawn::after { transform: scaleX(1); }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-line { clip-path: none; }
+      .char { opacity: 1; transform: none; }
+      .hero-display .italic-accent::after { transform: scaleX(1); }
+    }
+
+    .hero-lede {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 1.6;
+      color: var(--navy-700);
+      margin: 0 0 40px;
+      max-width: 38ch;
+    }
+    .hero-meta {
+      font-family: var(--font-body);
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.24em; text-transform: uppercase;
+      color: var(--navy-500);
+      display: flex; align-items: center;
+      flex-wrap: wrap; gap: 16px;
+      padding-top: 22px;
+      border-top: 1px solid var(--paper-200);
+    }
+    .hero-meta-dot {
+      width: 4px; height: 4px;
+      border-radius: 999px;
+      background: var(--sage-500);
+    }
+    .hero-scroll-hint {
+      position: absolute;
+      bottom: 40px; left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--font-body);
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.32em; text-transform: uppercase;
+      color: var(--navy-500);
+      display: flex; flex-direction: column; align-items: center;
+      gap: 12px;
+      opacity: 0;
+      transition: opacity 800ms var(--ease-out) 2400ms;
+    }
+    .hero-scroll-hint.ready { opacity: 0.6; }
+    .hero-scroll-hint-line {
+      width: 1px; height: 32px;
+      background: linear-gradient(180deg, var(--navy-500), transparent);
+      animation: hint-pulse 2400ms cubic-bezier(0.22, 0.61, 0.36, 1) infinite;
+    }
+    @keyframes hint-pulse {
+      0%, 100% { transform: scaleY(1); transform-origin: top; opacity: 0.6; }
+      50% { transform: scaleY(1.4); opacity: 1; }
+    }
+
+    /* Practice */
+    .practice { padding: 160px 0 120px; position: relative; }
+    .practice-header {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 64px;
+      align-items: end;
+      margin-bottom: 120px;
+    }
+    .section-h2 {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(48px, 5.6vw, 88px);
+      line-height: 1.02;
+      letter-spacing: -0.020em;
+      color: var(--navy-700);
+      margin: 0;
+      text-wrap: balance;
+      max-width: 16ch;
+    }
+    .section-lede {
+      font-family: var(--font-body);
+      font-size: 19px;
+      line-height: 1.65;
+      color: var(--navy-700);
+      margin: 0;
+      max-width: 44ch;
+      text-wrap: pretty;
+    }
+    .practice-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 0;
+      border-top: 1px solid var(--paper-200);
+    }
+    .practice-card {
+      grid-column: span 4;
+      padding: 36px 32px 44px 0;
+      border-bottom: 1px solid var(--paper-200);
+      border-right: 1px solid var(--paper-200);
+      position: relative;
+      cursor: pointer;
+      transition: background 480ms var(--ease-out);
+      overflow: hidden;
+    }
+    .practice-card:nth-child(3n) { border-right: none; padding-right: 0; }
+    .practice-card:nth-child(3n+1) { padding-left: 0; }
+    .practice-card:nth-child(3n+2) { padding-left: 32px; }
+    .practice-card:nth-child(3n+3) { padding-left: 32px; }
+    .practice-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--sage-500);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 580ms cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+    .practice-card:hover::before { transform: scaleX(1); }
+    .practice-card:hover { background: rgba(147, 180, 158, 0.04); }
+    .practice-num {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: 13px;
+      letter-spacing: 0.32em;
+      color: var(--sage-700);
+      margin-bottom: 18px;
+      transition: font-weight 380ms var(--ease-out), color 380ms var(--ease-out);
+    }
+    .practice-card:hover .practice-num {
+      font-weight: 400;
+      color: var(--navy-600);
+    }
+    .practice-title {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: 28px;
+      letter-spacing: -0.012em;
+      line-height: 1.14;
+      color: var(--navy-700);
+      margin: 0 0 14px;
+      text-wrap: balance;
+      transition: transform 480ms cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+    .practice-card:hover .practice-title { transform: translateX(6px); }
+    .practice-blurb {
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--navy-500);
+      margin: 0;
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition:
+        max-height 580ms cubic-bezier(0.22, 0.61, 0.36, 1),
+        opacity 380ms cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+    .practice-card:hover .practice-blurb { max-height: 220px; opacity: 1; margin-top: 4px; }
+    .practice-arrow {
+      position: absolute;
+      bottom: 32px; right: 0;
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 300;
+      color: var(--sage-600);
+      opacity: 0;
+      transform: translateX(-12px);
+      transition: opacity 380ms var(--ease-out), transform 480ms cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+    .practice-card:hover .practice-arrow { opacity: 1; transform: translateX(0); }
+    .practice-card:not(:nth-child(3n)) .practice-arrow { right: 24px; }
+    .practice-refusal {
+      margin-top: 96px;
+      max-width: 64ch;
+    }
+    .practice-refusal-label {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--sage-700);
+      margin-bottom: 18px;
+      position: relative;
+      padding-left: 22px;
+    }
+    .practice-refusal-label::before {
+      content: "";
+      position: absolute; left: 0; top: 50%;
+      width: 14px; height: 1px;
+      background: var(--sage-500);
+      transform: translateY(-50%);
+    }
+    .practice-refusal-body {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(22px, 2.4vw, 30px);
+      line-height: 1.42;
+      color: var(--navy-700);
+      margin: 0;
+      letter-spacing: -0.006em;
+      text-wrap: pretty;
+    }
+
+    /* Beliefs — sticky storyteller */
+    .beliefs {
+      position: relative;
+      background:
+        radial-gradient(ellipse at 20% 30%, rgba(147, 180, 158, 0.10) 0%, transparent 60%),
+        linear-gradient(180deg, #F6F8F6 0%, #EEF2EF 100%);
+      border-top: 1px solid var(--paper-200);
+      border-bottom: 1px solid var(--paper-200);
+    }
+    .beliefs-header {
+      padding: 160px 0 64px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 64px;
+      align-items: end;
+    }
+    .beliefs-track { position: relative; }
+    .beliefs-track[data-count="3"] { height: 300vh; }
+    .belief-sticky {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 0 40px;
+    }
+    /* The watermark numeral is its own layer behind the active belief, parallaxes slower than scroll. */
+    .belief-bg-num {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) translateY(var(--parallax, 0px));
+      font-family: var(--font-display);
+      font-weight: 200;
+      font-size: clamp(280px, 44vw, 720px);
+      line-height: 1;
+      letter-spacing: -0.06em;
+      color: var(--sage-500);
+      opacity: 0;
+      pointer-events: none;
+      user-select: none;
+      transition: opacity 900ms cubic-bezier(0.22, 0.61, 0.36, 1);
+      mix-blend-mode: multiply;
+      z-index: 0;
+      white-space: nowrap;
+    }
+    .belief-sticky.is-active .belief-bg-num { opacity: 0.07; }
+    .belief {
+      max-width: 1080px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+      gap: 80px;
+      align-items: start;
+      position: relative;
+      z-index: 1;
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 900ms cubic-bezier(0.22, 0.61, 0.36, 1), transform 900ms cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+    .belief.active { opacity: 1; transform: translateY(0); }
+    .belief.leaving { opacity: 0; transform: translateY(-16px); }
+    .belief-meta { display: flex; flex-direction: column; gap: 24px; }
+    .belief-num-large {
+      font-family: var(--font-display);
+      font-weight: 200;
+      font-size: clamp(80px, 12vw, 200px);
+      line-height: 0.84;
+      letter-spacing: -0.04em;
+      color: var(--sage-500);
+      margin: 0;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 800ms cubic-bezier(0.22, 0.61, 0.36, 1) 100ms, transform 900ms cubic-bezier(0.22, 0.61, 0.36, 1) 100ms;
+    }
+    .belief.active .belief-num-large { opacity: 0.45; transform: translateY(0); }
+    .belief-of {
+      font-family: var(--font-body);
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.32em; text-transform: uppercase;
+      color: var(--navy-500);
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 700ms cubic-bezier(0.22, 0.61, 0.36, 1) 220ms, transform 700ms cubic-bezier(0.22, 0.61, 0.36, 1) 220ms;
+    }
+    .belief.active .belief-of { opacity: 1; transform: translateY(0); }
+    .belief-content { display: flex; flex-direction: column; gap: 32px; }
+    .belief-eyebrow {
+      font-family: var(--font-body);
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--sage-700);
+      display: inline-flex; align-items: center; gap: 14px;
+      position: relative; padding-top: 18px;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 700ms cubic-bezier(0.22, 0.61, 0.36, 1) 280ms, transform 700ms cubic-bezier(0.22, 0.61, 0.36, 1) 280ms;
+    }
+    .belief.active .belief-eyebrow { opacity: 1; transform: translateY(0); }
+    .belief-eyebrow::before {
+      content: "";
+      position: absolute; top: 0; left: 0;
+      width: 0; height: 1px;
+      background: var(--sage-500);
+      transition: width 900ms cubic-bezier(0.22, 0.61, 0.36, 1) 420ms;
+    }
+    .belief.active .belief-eyebrow::before { width: 64px; }
+    .belief-title {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(36px, 4.4vw, 64px);
+      line-height: 1.06;
+      letter-spacing: -0.016em;
+      color: var(--navy-700);
+      margin: 0;
+      text-wrap: balance;
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 900ms cubic-bezier(0.22, 0.61, 0.36, 1) 360ms, transform 900ms cubic-bezier(0.22, 0.61, 0.36, 1) 360ms;
+    }
+    .belief.active .belief-title { opacity: 1; transform: translateY(0); }
+    .belief-body {
+      font-family: var(--font-body);
+      font-size: 18px;
+      line-height: 1.7;
+      color: var(--navy-600);
+      margin: 0;
+      max-width: 56ch;
+      text-wrap: pretty;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 900ms cubic-bezier(0.22, 0.61, 0.36, 1) 480ms, transform 900ms cubic-bezier(0.22, 0.61, 0.36, 1) 480ms;
+    }
+    .belief.active .belief-body { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) {
+      .belief, .belief-num-large, .belief-of, .belief-eyebrow, .belief-title, .belief-body {
+        opacity: 1 !important; transform: none !important;
+      }
+      .belief-eyebrow::before { width: 64px !important; }
+    }
+
+    /* Full-bleed v2 wow */
+    .bleed {
+      padding: 220px 0 220px;
+      background: var(--paper-50);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .bleed-mark-pre, .bleed-mark-post {
+      display: inline-block;
+      width: 9px; height: 9px;
+      background: var(--sage-500);
+      transform: rotate(45deg);
+      margin: 0 28px;
+      vertical-align: middle;
+      opacity: 0;
+      transition: opacity 720ms var(--ease-out) 400ms;
+    }
+    .bleed.in-view .bleed-mark-pre,
+    .bleed.in-view .bleed-mark-post { opacity: 1; }
+    .bleed-quote {
+      font-family: var(--font-display);
+      font-weight: 200;
+      font-size: clamp(40px, 5.6vw, 84px);
+      line-height: 1.06;
+      letter-spacing: -0.020em;
+      color: var(--navy-700);
+      margin: 0;
+      text-wrap: balance;
+      max-width: 20ch;
+      display: inline;
+    }
+    .bleed-quote em {
+      font-style: italic;
+      color: var(--sage-600);
+      font-weight: 200;
+    }
+    .bleed-attr {
+      margin-top: 56px;
+      font-family: var(--font-body);
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.32em; text-transform: uppercase;
+      color: var(--navy-500);
+      opacity: 0;
+      transition: opacity 720ms var(--ease-out) 800ms;
+    }
+    .bleed.in-view .bleed-attr { opacity: 1; }
+
+    /* Engagements */
+    .engagements { padding: 160px 0 120px; position: relative; }
+    .engagements-header {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 64px;
+      align-items: end;
+      margin-bottom: 80px;
+    }
+    .engagements-filters {
+      display: flex; gap: 8px; flex-wrap: wrap;
+      margin-bottom: 56px;
+    }
+    .filter-btn {
+      font-family: var(--font-body);
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--navy-700);
+      background: transparent;
+      border: 1px solid var(--navy-600);
+      border-radius: 999px;
+      padding: 8px 18px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: color 380ms var(--ease-out);
+    }
+    .filter-btn::before {
+      content: ""; position: absolute; inset: 0;
+      background: var(--navy-600);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 380ms cubic-bezier(0.65, 0, 0.35, 1);
+      z-index: -1;
+    }
+    .filter-btn:hover { color: var(--paper-50); }
+    .filter-btn:hover::before { transform: scaleX(1); }
+    .filter-btn span { position: relative; z-index: 1; }
+    .filter-btn.active { color: var(--paper-50); }
+    .filter-btn.active::before { transform: scaleX(1); }
+    .engagements-list { border-top: 1px solid var(--navy-600); }
+    .engagement {
+      border-bottom: 1px solid var(--paper-200);
+      position: relative;
+      transition: opacity 380ms var(--ease-out), filter 380ms var(--ease-out);
+    }
+    .engagements-list.has-open .engagement:not(.open) {
+      opacity: 0.55;
+      filter: saturate(0.65);
+    }
+    .engagements-list.has-open .engagement:not(.open):hover {
+      opacity: 1;
+      filter: saturate(1);
+    }
+    .engagement.is-hidden { display: none; }
+    .engagement-summary {
+      display: grid;
+      grid-template-columns: 60px minmax(0, 1.1fr) minmax(0, 1.6fr) 36px;
+      gap: 32px;
+      padding: 32px 28px;
+      align-items: baseline;
+      cursor: pointer;
+      position: relative;
+      transition: padding 380ms var(--ease-out);
+      width: 100%;
+      text-align: left;
+    }
+    .engagement-summary:hover { padding-left: 40px; padding-right: 40px; }
+    .engagement-rule {
+      position: absolute;
+      left: 0; top: 50%;
+      transform: translateY(-50%);
+      width: 0; height: 70%;
+      background: var(--sage-500);
+      transition: width 380ms cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+    .engagement.open .engagement-rule,
+    .engagement-summary:hover .engagement-rule { width: 4px; }
+    .engagement.open { background: rgba(147, 180, 158, 0.05); }
+    .engagement-num {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: 14px;
+      letter-spacing: 0.22em;
+      color: var(--sage-700);
+    }
+    .engagement-client {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: 24px;
+      letter-spacing: -0.012em;
+      color: var(--navy-700);
+      text-wrap: balance;
+      transition: transform 380ms cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+    .engagement-summary:hover .engagement-client { transform: translateX(4px); }
+    .engagement-matter {
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--navy-500);
+      line-height: 1.5;
+    }
+    .engagement-cat {
+      font-family: var(--font-body);
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--sage-700);
+      background: rgba(147, 180, 158, 0.18);
+      padding: 5px 12px;
+      border-radius: 999px;
+      display: inline-block;
+      justify-self: start;
+    }
+    .engagement-year {
+      font-family: ui-monospace, "SF Mono", monospace;
+      font-size: 13px;
+      color: var(--stone-500);
+      text-align: right;
+      letter-spacing: 0.04em;
+    }
+    .engagement-toggle {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 300;
+      color: var(--sage-600);
+      text-align: right;
+      display: inline-block;
+      transform-origin: center;
+      transition: transform 480ms cubic-bezier(0.65, 0, 0.35, 1), color 380ms var(--ease-out);
+    }
+    .engagement-summary:hover .engagement-toggle { color: var(--sage-700); }
+    .engagement.open .engagement-toggle { transform: rotate(90deg); }
+    /* grid-template-rows: 0fr → 1fr unlocks content-aware silky height transitions.
+       Modern browsers compute this efficiently and animate the layout grid track. */
+    .engagement-detail-wrap {
+      display: grid;
+      grid-template-rows: 0fr;
+      overflow: hidden;
+      transition: grid-template-rows 620ms cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+    .engagement.open .engagement-detail-wrap { grid-template-rows: 1fr; }
+    .engagement-detail-wrap > * { min-height: 0; }
+    .engagement-detail {
+      padding: 0 28px 48px 88px;
+      max-width: 820px;
+    }
+    .engagement-detail p {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.72;
+      color: var(--navy-600);
+      margin: 0 0 16px;
+      text-wrap: pretty;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 580ms cubic-bezier(0.22, 0.61, 0.36, 1) 120ms, transform 580ms cubic-bezier(0.22, 0.61, 0.36, 1) 120ms;
+    }
+    .engagement.open .engagement-detail p { opacity: 1; transform: translateY(0); }
+    .engagement.open .engagement-detail p:nth-child(2) { transition-delay: 200ms; }
+    .engagement.open .engagement-detail p:nth-child(3) { transition-delay: 280ms; }
+    .engagement-detail .lift {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-style: italic;
+      font-size: 22px;
+      line-height: 1.4;
+      color: var(--navy-700);
+      border-left: 2px solid var(--sage-500);
+      padding-left: 24px;
+      margin: 24px 0;
+      max-width: 56ch;
+    }
+    .engagements-foot {
+      margin-top: 56px;
+      padding-top: 28px;
+      border-top: 1px solid var(--paper-200);
+      max-width: 920px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--stone-500);
+      font-style: italic;
+    }
+
+    /* Catalog marquee */
+    .marquee-section {
+      padding: 64px 0;
+      background: var(--paper-100);
+      border-top: 1px solid var(--paper-200);
+      border-bottom: 1px solid var(--paper-200);
+      overflow: hidden;
+      position: relative;
+    }
+    .marquee-section::before,
+    .marquee-section::after {
+      content: "";
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 160px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .marquee-section::before {
+      left: 0;
+      background: linear-gradient(90deg, var(--paper-100) 0%, rgba(244, 242, 236, 0.92) 35%, transparent 100%);
+    }
+    .marquee-section::after {
+      right: 0;
+      background: linear-gradient(-90deg, var(--paper-100) 0%, rgba(244, 242, 236, 0.92) 35%, transparent 100%);
+    }
+    .marquee-label {
+      position: absolute;
+      top: 22px; left: 50%; transform: translateX(-50%);
+      font-family: var(--font-body);
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.32em; text-transform: uppercase;
+      color: var(--navy-500);
+      z-index: 3;
+      background: var(--paper-100);
+      padding: 0 16px;
+    }
+    .marquee-track {
+      display: flex;
+      gap: 60px;
+      animation: marquee 80s linear infinite;
+      padding-top: 32px;
+      width: max-content;
+    }
+    .marquee-section:hover .marquee-track {
+      animation-play-state: paused;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .marquee-item {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: 26px;
+      letter-spacing: -0.008em;
+      color: var(--navy-700);
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 60px;
+    }
+    .marquee-item::after {
+      content: "";
+      width: 7px; height: 7px;
+      background: var(--sage-500);
+      transform: rotate(45deg);
+      flex-shrink: 0;
+    }
+
+    /* Pull quote */
+    .pullquote-section {
+      padding: 200px 0;
+      background:
+        radial-gradient(ellipse at 50% 50%, rgba(147, 180, 158, 0.08) 0%, transparent 70%),
+        var(--paper-50);
+      position: relative;
+      overflow: hidden;
+    }
+    .pullquote-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 40px;
+      text-align: center;
+    }
+    .pullquote-eyebrow {
+      display: inline-flex; align-items: center; gap: 14px;
+      margin-bottom: 56px;
+      font-family: var(--font-body);
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.32em; text-transform: uppercase;
+      color: var(--navy-600);
+    }
+    .pullquote-eyebrow::before,
+    .pullquote-eyebrow::after {
+      content: "";
+      display: inline-block;
+      width: 32px; height: 1px;
+      background: var(--navy-500);
+    }
+    .pullquote-body {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(32px, 4.4vw, 60px);
+      line-height: 1.28;
+      letter-spacing: -0.012em;
+      color: var(--navy-700);
+      margin: 0 auto 56px;
+      max-width: 22ch;
+      text-wrap: balance;
+      position: relative;
+    }
+    .pullquote-body em {
+      font-style: italic;
+      color: var(--sage-600);
+      font-weight: 300;
+    }
+    /* Decorative open-quote glyph that draws in before the text begins. */
+    .pullquote-glyph {
+      display: block;
+      margin: 0 auto 24px;
+      width: 56px;
+      height: 28px;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 900ms cubic-bezier(0.22, 0.61, 0.36, 1), transform 900ms cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+    .pullquote-glyph.shown { opacity: 1; transform: translateY(0); }
+    .pullquote-glyph path {
+      fill: none;
+      stroke: var(--sage-500);
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 80;
+      stroke-dashoffset: 80;
+      transition: stroke-dashoffset 1400ms cubic-bezier(0.22, 0.61, 0.36, 1) 200ms;
+    }
+    .pullquote-glyph.shown path { stroke-dashoffset: 0; }
+    .pullquote-body .word-reveal {
+      display: inline-block;
+      opacity: 0.16;
+      transform: translateY(8px);
+      transition: opacity 760ms cubic-bezier(0.22, 0.61, 0.36, 1), transform 760ms cubic-bezier(0.22, 0.61, 0.36, 1);
+      color: var(--navy-700);
+    }
+    .pullquote-body .word-reveal.shown { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) {
+      .pullquote-glyph { opacity: 1; transform: none; }
+      .pullquote-glyph path { stroke-dashoffset: 0; }
+      .pullquote-body .word-reveal { opacity: 1; transform: none; }
+    }
+    .pullquote-attr {
+      font-family: var(--font-body);
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.32em; text-transform: uppercase;
+      color: var(--navy-500);
+      margin: 0;
+    }
+
+    /* About */
+    .about { padding: 160px 0; position: relative; }
+    .about-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+    .about-display {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(44px, 5vw, 72px);
+      line-height: 1.04;
+      letter-spacing: -0.018em;
+      color: var(--navy-700);
+      margin: 0 0 56px;
+      max-width: 22ch;
+      text-wrap: balance;
+    }
+    .about-prose {
+      font-family: var(--font-body);
+      font-size: 18px;
+      line-height: 1.75;
+      color: var(--navy-600);
+      max-width: 64ch;
+    }
+    .about-prose p { margin: 0 0 20px; }
+    .about-prose p:last-child { margin-bottom: 0; }
+    .about-letter {
+      max-width: 56ch;
+      margin: 80px 0 0;
+      padding: 40px 0 0;
+      border-top: 1px solid var(--paper-200);
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(24px, 2.6vw, 34px);
+      line-height: 1.42;
+      letter-spacing: -0.008em;
+      color: var(--navy-700);
+      text-wrap: balance;
+    }
+    .about-signature {
+      display: inline-block;
+      margin-top: 32px;
+      font-family: var(--font-body);
+      font-style: normal;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.36em; text-transform: uppercase;
+      color: var(--navy-600);
+      position: relative;
+      padding-top: 16px;
+    }
+    .about-signature::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 0; height: 1px;
+      background: var(--sage-500);
+      transition: width 1200ms cubic-bezier(0.22, 0.61, 0.36, 1) 200ms;
+    }
+    .about-letter.in-view .about-signature::before { width: 100%; }
+
+    /* Contact */
+    .contact {
+      padding: 140px 0 120px;
+      background:
+        radial-gradient(ellipse at 80% 20%, rgba(147, 180, 158, 0.10) 0%, transparent 60%),
+        var(--paper-50);
+      border-top: 1px solid var(--paper-200);
+      position: relative;
+    }
+    .contact-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 64px;
+      align-items: end;
+    }
+    .contact-display {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(44px, 5.6vw, 80px);
+      line-height: 1.04;
+      letter-spacing: -0.018em;
+      color: var(--navy-700);
+      margin: 0;
+      max-width: 18ch;
+      text-wrap: balance;
+    }
+    .contact-detail {
+      font-family: var(--font-body);
+      font-size: 18px;
+      line-height: 1.7;
+      color: var(--navy-600);
+      max-width: 48ch;
+    }
+    .contact-detail p { margin: 0 0 18px; }
+    .contact-cta-wrap { margin: 32px 0 24px; }
+    .contact-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      font-family: var(--font-body);
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--paper-50);
+      background: var(--navy-700);
+      padding: 18px 28px;
+      border-radius: 999px;
+      border: none;
+      position: relative;
+      overflow: hidden;
+      transition: transform 280ms cubic-bezier(0.22, 0.61, 0.36, 1);
+      will-change: transform;
+    }
+    .contact-cta::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--navy-800) 0%, var(--navy-600) 100%);
+      transform: translateY(100%);
+      transition: transform 580ms cubic-bezier(0.65, 0, 0.35, 1);
+    }
+    .contact-cta:hover::before { transform: translateY(0); }
+    .contact-cta-text { position: relative; z-index: 1; }
+    .contact-cta-arrow {
+      position: relative;
+      z-index: 1;
+      transition: transform 480ms cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+    .contact-cta:hover .contact-cta-arrow { transform: translateX(6px); }
+    .contact-secondary { font-size: 15px; color: var(--navy-500); margin: 0; }
+    .contact-secondary a {
+      color: var(--navy-700);
+      position: relative;
+      padding-bottom: 1px;
+    }
+    .contact-secondary a::after {
+      content: "";
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      height: 1px;
+      background: var(--sage-500);
+      transform: scaleX(1);
+      transform-origin: left;
+      transition: transform 380ms cubic-bezier(0.65, 0, 0.35, 1);
+    }
+    .contact-secondary a:hover::after {
+      transform: scaleX(0);
+      transform-origin: right;
+    }
+    .contact-coda {
+      max-width: 64ch;
+      margin: 80px auto 0;
+      padding: 32px 40px 0;
+      border-top: 1px solid var(--paper-200);
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-style: italic;
+      font-size: 22px;
+      line-height: 1.55;
+      color: var(--navy-600);
+      text-align: center;
+      text-wrap: pretty;
+    }
+
+    /* Footer */
+    .footer {
+      padding: 88px 0 40px;
+      background: var(--bg-navy-deep);
+      color: var(--fg-on-navy);
+      position: relative;
+      overflow: hidden;
+    }
+    .footer-watermark {
+      position: absolute;
+      bottom: -120px; right: -80px;
+      width: 480px;
+      opacity: 0.06;
+      mask-image: radial-gradient(circle at 50% 50%, black 0%, transparent 75%);
+      -webkit-mask-image: radial-gradient(circle at 50% 50%, black 0%, transparent 75%);
+      pointer-events: none;
+    }
+    .footer-inner {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 64px;
+      align-items: end;
+      position: relative;
+    }
+    .footer-lockup { display: inline-flex; align-items: center; gap: 20px; }
+    .footer-mono { height: 56px; width: auto; opacity: 0.96; }
+    .footer-mark { display: inline-flex; flex-direction: column; line-height: 1; gap: 6px; }
+    .footer-mark .name {
+      font-family: var(--font-display); font-weight: 400; font-size: 26px;
+      color: var(--sage-300); letter-spacing: -0.006em;
+    }
+    .footer-mark .sub {
+      font-family: var(--font-body); font-weight: 700; font-size: 11px;
+      color: var(--paper-100); letter-spacing: 0.36em; text-transform: uppercase;
+    }
+    .footer-meta {
+      font-family: var(--font-body);
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.32em; text-transform: uppercase;
+      color: var(--sage-300);
+      text-align: right;
+      line-height: 1.8;
+    }
+    .footer-meta-row { display: flex; gap: 16px; justify-content: flex-end; align-items: center; }
+    .footer-dot { width: 4px; height: 4px; border-radius: 999px; background: var(--sage-500); }
+    .footer-fine {
+      max-width: 1320px;
+      margin: 64px auto 0;
+      padding: 28px 40px 0;
+      border-top: 1px solid rgba(229, 236, 243, 0.12);
+      font-family: var(--font-body);
+      font-size: 11px;
+      color: rgba(229, 236, 243, 0.5);
+      letter-spacing: 0.04em;
+      line-height: 1.9;
+      position: relative;
+    }
+    .footer-fine-note {
+      font-style: italic;
+      color: rgba(229, 236, 243, 0.7);
+      letter-spacing: 0.02em;
+    }
+
+    /* Responsive */
+    @media (max-width: 1080px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 56px; }
+      .hero-divider { display: none; }
+      .practice-header,
+      .beliefs-header,
+      .engagements-header,
+      .contact-inner,
+      .footer-inner { grid-template-columns: 1fr; gap: 40px; }
+      .practice-grid { grid-template-columns: 1fr; }
+      .practice-card { grid-column: span 1; border-right: none; padding-left: 0 !important; padding-right: 0 !important; }
+      .belief { grid-template-columns: 1fr; gap: 32px; }
+      .belief-num-large { font-size: clamp(72px, 18vw, 140px); }
+      .belief-sticky { padding: 0 24px; }
+      .engagement-summary {
+        grid-template-columns: 40px 1fr 36px;
+        grid-template-areas:
+          "num client toggle"
+          ".   matter toggle";
+        gap: 8px 16px;
+        padding: 24px 16px !important;
+      }
+      .engagement-num { grid-area: num; }
+      .engagement-client { grid-area: client; font-size: 20px; }
+      .engagement-matter { grid-area: matter; }
+      .engagement-toggle { grid-area: toggle; align-self: center; }
+      .engagement-detail { padding: 0 16px 32px 56px; }
+      .topnav-links { display: none; }
+      .footer-meta { text-align: left; }
+      .footer-meta-row { justify-content: flex-start; }
+      .hero { padding: 120px 0 80px; min-height: auto; }
+      .bleed { padding: 120px 0; }
+      .pullquote-section { padding: 120px 0; }
+      .about, .contact { padding: 100px 0; }
+      .practice, .engagements { padding: 100px 0 80px; }
+      .practice-header, .engagements-header { margin-bottom: 56px; }
+      .beliefs-header { padding: 100px 0 32px; }
+    }
+    @media (max-width: 640px) {
+      .marquee-item { font-size: 20px; gap: 32px; }
+      .marquee-track { gap: 32px; }
+    }
+
+    /* Print */
+    @media print {
+      .dossier-curtain, .margin-rule, .progress-bar, .section-rail, .topnav, .hero-scroll-hint,
+      .marquee-section, .engagement-toggle, .contact-cta-wrap, .skip-link,
+      .belief-bg-num, .pullquote-glyph { display: none !important; }
+      body::before { display: none; }
+      html, body { background: white; }
+      .hero, .practice, .beliefs, .engagements, .pullquote-section, .about, .contact, .footer { padding: 24px 0 !important; min-height: auto !important; background: none !important; border: none !important; }
+      .belief-sticky { position: static !important; height: auto !important; padding: 24px 0 !important; }
+      .beliefs-track { height: auto !important; }
+      .belief { opacity: 1 !important; transform: none !important; gap: 24px; }
+      .hero-line { clip-path: none !important; }
+      .engagement.is-hidden { display: none !important; }
+      .engagement-detail-wrap { grid-template-rows: 1fr !important; }
+      .engagement-detail p { opacity: 1 !important; transform: none !important; }
+      .reveal, .char { opacity: 1 !important; transform: none !important; }
+      .word-reveal { opacity: 1 !important; transform: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="dossier-curtain" id="dossierCurtain" aria-hidden="true">
+    <div class="dossier-wordmark">
+      <span class="name">Maple Ridge</span>
+      <span class="rule"></span>
+      <span class="sub">A&nbsp;d&nbsp;v&nbsp;i&nbsp;s&nbsp;o&nbsp;r&nbsp;s</span>
+    </div>
+  </div>
+  <div class="margin-rule" id="marginRule"></div>
+  <div class="progress-bar" id="progressBar"></div>
+  <a href="#top" class="skip-link">Skip to content</a>
+
+  <nav class="section-rail" id="sectionRail" aria-label="Section navigation">
+    <button class="rail-dot active" data-target="hero" data-label="Hero" aria-label="Hero"></button>
+    <button class="rail-dot" data-target="practice" data-label="Practice" aria-label="Practice"></button>
+    <button class="rail-dot" data-target="beliefs" data-label="Beliefs" aria-label="Beliefs"></button>
+    <button class="rail-dot" data-target="bleed" data-label="Statement" aria-label="Statement"></button>
+    <button class="rail-dot" data-target="engagements" data-label="Engagements" aria-label="Engagements"></button>
+    <button class="rail-dot" data-target="pullquote" data-label="Belief" aria-label="Belief"></button>
+    <button class="rail-dot" data-target="about" data-label="About" aria-label="About"></button>
+    <button class="rail-dot" data-target="contact" data-label="Contact" aria-label="Contact"></button>
+  </nav>
+
+  <header class="topnav" id="topnav">
+    <div class="topnav-inner">
+      <a href="#top" class="topnav-lockup" aria-label="Maple Ridge Advisors">
+        <img src="assets/monogram@2x.png" alt="" class="topnav-mono">
+        <span class="topnav-mark">
+          <span class="topnav-name">Maple Ridge</span>
+          <span class="topnav-sub">A&nbsp;d&nbsp;v&nbsp;i&nbsp;s&nbsp;o&nbsp;r&nbsp;s</span>
+        </span>
+      </a>
+      <nav class="topnav-links">
+        <a href="#practice" class="topnav-link" data-nav="practice">Practice</a>
+        <a href="#beliefs" class="topnav-link" data-nav="beliefs">Beliefs</a>
+        <a href="#engagements" class="topnav-link" data-nav="engagements">Engagements</a>
+        <a href="#about" class="topnav-link" data-nav="about">About</a>
+        <a href="#contact" class="topnav-cta" data-cta="true"><span>Schedule a call</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <section class="hero" id="hero" data-section="hero">
+      <div class="hero-watermark" id="heroWatermark">
+        <img src="assets/monogram@2x.png" alt="">
+      </div>
+      <div class="hero-inner">
+        <div>
+          <span class="eyebrow hero-eyebrow"><span class="eyebrow-diamond"></span>Counsel for the worst day</span>
+          <h1 class="hero-display" id="heroDisplay" data-text="When the call comes, we are |already preparing the next ninety days."></h1>
+        </div>
+        <div class="hero-divider"></div>
+        <div class="reveal hero-right" data-delay="4">
+          <p class="hero-lede">
+            We sit with chief executives, boards, and general counsel through
+            the moments that define a tenure &mdash; the conversation that has to
+            happen, the message that has to land, the decision that cannot be
+            revisited.
+          </p>
+          <div class="hero-meta">
+            <span>Independent practice</span>
+            <span class="hero-meta-dot"></span>
+            <span>By referral</span>
+            <span class="hero-meta-dot"></span>
+            <span>Los Angeles</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-scroll-hint" id="heroScrollHint">
+        <span>Scroll</span>
+        <span class="hero-scroll-hint-line"></span>
+      </div>
+    </section>
+
+    <section class="practice" id="practice" data-section="practice">
+      <div class="container">
+        <div class="practice-header">
+          <div>
+            <span class="eyebrow reveal"><span class="eyebrow-diamond"></span>The practice</span>
+            <h2 class="section-h2 reveal" data-delay="1">Seven areas of practice;<br><span class="italic-accent">one</span> standard.</h2>
+          </div>
+          <p class="section-lede reveal" data-delay="2">
+            We are called when the next sentence matters most &mdash; when one
+            word can move a stakeholder or lose them. We are deliberately small.
+            The person you read about here is the person who shows up.
+          </p>
+        </div>
+
+        <div class="practice-grid reveal" data-delay="3">
+          <article class="practice-card" data-cta="true">
+            <div class="practice-num">I</div>
+            <h3 class="practice-title">Executive communications</h3>
+            <p class="practice-blurb">Coaching and counsel to chief executives across communications strategy, public speaking, board posture, and the long arc of reputation.</p>
+            <span class="practice-arrow">&rarr;</span>
+          </article>
+          <article class="practice-card" data-cta="true">
+            <div class="practice-num">II</div>
+            <h3 class="practice-title">Crisis &amp; issues</h3>
+            <p class="practice-blurb">On-call response to product recalls, data breaches, regulatory actions, executive controversies, public-health emergencies, and activist pressure.</p>
+            <span class="practice-arrow">&rarr;</span>
+          </article>
+          <article class="practice-card" data-cta="true">
+            <div class="practice-num">III</div>
+            <h3 class="practice-title">Organizational change</h3>
+            <p class="practice-blurb">Internal communications during restructurings, layoffs, leadership transitions, and cultural resets &mdash; including the work no one wants to do.</p>
+            <span class="practice-arrow">&rarr;</span>
+          </article>
+          <article class="practice-card" data-cta="true">
+            <div class="practice-num">IV</div>
+            <h3 class="practice-title">Mergers &amp; acquisitions</h3>
+            <p class="practice-blurb">Communications strategy across the deal lifecycle, from rumor management to integration messaging through year-one milestones.</p>
+            <span class="practice-arrow">&rarr;</span>
+          </article>
+          <article class="practice-card" data-cta="true">
+            <div class="practice-num">V</div>
+            <h3 class="practice-title">Thought leadership</h3>
+            <p class="practice-blurb">A point of view on the company&rsquo;s most important questions, expressed in op-eds, keynotes, congressional testimony, and earned media.</p>
+            <span class="practice-arrow">&rarr;</span>
+          </article>
+          <article class="practice-card" data-cta="true">
+            <div class="practice-num">VI</div>
+            <h3 class="practice-title">Purpose &amp; CSR</h3>
+            <p class="practice-blurb">Programs that align corporate citizenship with strategic intent &mdash; commitments the firm can defend in five years, not slogans.</p>
+            <span class="practice-arrow">&rarr;</span>
+          </article>
+          <article class="practice-card" data-cta="true">
+            <div class="practice-num">VII</div>
+            <h3 class="practice-title">Advocacy &amp; influence</h3>
+            <p class="practice-blurb">Media relations, third-party validator alignment, and policy-adjacent narrative work for moments when a voice must travel further than its press list.</p>
+            <span class="practice-arrow">&rarr;</span>
+          </article>
+        </div>
+
+        <div class="practice-refusal reveal">
+          <span class="practice-refusal-label">What we do not take on</span>
+          <p class="practice-refusal-body">
+            Engagements that need many hands, and engagements where the leader is
+            not ready to hear an uncomfortable answer. We work small by design;
+            where the matter needs a large institutional footprint, the better
+            answer is a larger firm, and we will say so plainly.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="beliefs" id="beliefs" data-section="beliefs">
+      <div class="container">
+        <div class="beliefs-header">
+          <div>
+            <span class="eyebrow reveal"><span class="eyebrow-diamond"></span>How we work</span>
+            <h2 class="section-h2 reveal" data-delay="1">Three beliefs that<br>shape the <span class="italic-accent">work</span>.</h2>
+          </div>
+          <p class="section-lede reveal" data-delay="2">
+            What we bring is not technique. It is listening, judgment, and the
+            steady hand the moment requires. Tali trained as a nurse before she
+            trained as a counsellor; the instinct to care for the person before
+            the situation runs through every engagement.
+          </p>
+        </div>
+      </div>
+
+      <div class="beliefs-track" data-count="3" id="beliefsTrack">
+
+        <div class="belief-sticky">
+          <span class="belief-bg-num" aria-hidden="true">01</span>
+          <article class="belief" data-belief="1">
+            <div class="belief-meta">
+              <p class="belief-num-large">01</p>
+              <p class="belief-of">Belief 01 / 03</p>
+            </div>
+            <div class="belief-content">
+              <span class="belief-eyebrow">Where we start</span>
+              <h3 class="belief-title">The human truth, then the strategy.</h3>
+              <p class="belief-body">
+                Most issues are human-caused, and therefore human-solved. We start
+                by listening for what is actually true &mdash; for the client, for
+                the people affected, for the room. Then we build the strategy
+                around that truth, rather than against the narrative that has
+                formed in public.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <div class="belief-sticky">
+          <span class="belief-bg-num" aria-hidden="true">02</span>
+          <article class="belief" data-belief="2">
+            <div class="belief-meta">
+              <p class="belief-num-large">02</p>
+              <p class="belief-of">Belief 02 / 03</p>
+            </div>
+            <div class="belief-content">
+              <span class="belief-eyebrow">The hardest call</span>
+              <h3 class="belief-title">Honest before defensive.</h3>
+              <p class="belief-body">
+                Roughly ninety-five percent of crises come from a mistake or a
+                miscommunication, not from anyone&rsquo;s bad faith. When we name
+                what actually happened &mdash; clearly, early, and in plain
+                language &mdash; the public is largely forgiving. The institution
+                that hunkers down loses the room that was prepared to forgive it.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <div class="belief-sticky">
+          <span class="belief-bg-num" aria-hidden="true">03</span>
+          <article class="belief" data-belief="3">
+            <div class="belief-meta">
+              <p class="belief-num-large">03</p>
+              <p class="belief-of">Belief 03 / 03</p>
+            </div>
+            <div class="belief-content">
+              <span class="belief-eyebrow">The people who matter most</span>
+              <h3 class="belief-title">The team is the most credible voice.</h3>
+              <p class="belief-body">
+                The people inside an institution carry it through a crisis or
+                bring it down. They are also, almost always, the most overlooked
+                defenders of it. We rally them, on the record, and the coverage
+                turns. When the institution itself ends, we stay until the people
+                inside have somewhere to go next.
+              </p>
+            </div>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="bleed" id="bleed" data-section="bleed">
+      <div class="container-narrow">
+        <span class="bleed-mark-pre"></span>
+        <h2 class="bleed-quote">It is not a crisis. It is a <em>situation</em>.</h2>
+        <span class="bleed-mark-post"></span>
+        <p class="bleed-attr">A working belief, often spoken in the room.</p>
+      </div>
+    </section>
+
+    <section class="engagements" id="engagements" data-section="engagements">
+      <div class="container">
+        <div class="engagements-header">
+          <div>
+            <span class="eyebrow reveal"><span class="eyebrow-diamond"></span>Case studies</span>
+            <h2 class="section-h2 reveal" data-delay="1">A few situations<br>we have <span class="italic-accent">worked</span> through.</h2>
+          </div>
+          <p class="section-lede reveal" data-delay="2">
+            Drawn from twenty-five years across major agencies, in-house
+            leadership at Theranos, and independent practice. Some are public
+            record; others are described by category because the people involved
+            deserve that discretion.
+          </p>
+        </div>
+
+        <div class="engagements-filters reveal" data-delay="3" role="tablist" aria-label="Filter case studies">
+          <button class="filter-btn active" data-filter="all"><span>All</span></button>
+          <button class="filter-btn" data-filter="Crisis"><span>Crisis</span></button>
+          <button class="filter-btn" data-filter="Issues"><span>Issues</span></button>
+          <button class="filter-btn" data-filter="Transformation"><span>Transformation</span></button>
+          <button class="filter-btn" data-filter="Advocacy"><span>Advocacy</span></button>
+        </div>
+
+        <div class="engagements-list reveal" data-delay="4" id="engagementsList">
+
+          <div class="engagement" data-category="Crisis">
+            <button class="engagement-summary" type="button" aria-expanded="false">
+              <span class="engagement-rule"></span>
+              <span class="engagement-num">I</span>
+              <span class="engagement-client">Texas Health Presbyterian</span>
+              <span class="engagement-matter">First U.S. Ebola case &mdash; institutional response</span>
+              <span class="engagement-toggle" aria-hidden="true">&rsaquo;</span>
+            </button>
+            <div class="engagement-detail-wrap">
+              <div class="engagement-detail">
+                <p>A man returning to Dallas from a funeral in Liberia presented at the emergency room with symptoms consistent with both Ebola and acute intoxication. The on-shift physician, employed by a temp agency rather than the hospital, discharged him. He infected family members at home and died. The press pointed at the hospital as incompetent and indifferent; the hospital pointed at the temp-agency staffing model and at Epic, the records vendor; the CDC&rsquo;s guidance on community-hospital Ebola containment was, at that point, manifestly inadequate.</p>
+                <p>We located the human story: a Liberian community&rsquo;s funeral practices, the patient&rsquo;s intoxication confounding the differential diagnosis, a temp-agency physician not integrated into the hospital&rsquo;s protocols. We rallied the hospital&rsquo;s own employees as the most credible defenders of its competence. The coverage turned. The CDC subsequently restructured the national response architecture for high-consequence infectious disease, designating a single hospital in Nebraska as the country&rsquo;s containment site.</p>
+                <p class="lift">When the press is looking for someone to blame, the people inside the institution are usually the most credible defenders &mdash; and the most overlooked. We named them and put them on the record.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="engagement" data-category="Transformation">
+            <button class="engagement-summary" type="button" aria-expanded="false">
+              <span class="engagement-rule"></span>
+              <span class="engagement-num">II</span>
+              <span class="engagement-client">The Trevor Project</span>
+              <span class="engagement-matter">CEO termination, organizational restructure, and federal funding crisis</span>
+              <span class="engagement-toggle" aria-hidden="true">&rsaquo;</span>
+            </button>
+            <div class="engagement-detail-wrap">
+              <div class="engagement-detail">
+                <p>When a caller dials 988 and identifies as LGBTQ-plus youth, they are routed to The Trevor Project. Under the second Trump administration, the federal funding stream underwriting that routing was at risk and was ultimately pulled. The organization was simultaneously transitioning chief executives.</p>
+                <p>We worked with the outgoing and incoming chief executives to articulate, for federal stakeholders and the broader donor community, why LGBTQ-plus youth present clinically as a distinct caller population whose suicide threats progress differently. We coordinated media, public advocacy, and the organization&rsquo;s Washington public-affairs team to make the case on substantive grounds rather than identity-politics grounds. We held the organization together through the chief-executive transition that overlapped the funding fight.</p>
+                <p class="lift">You build the narrative that makes a fifty-million-dollar donor see you before the federal funding goes away. The work is invisible until the funding is gone &mdash; and then it is the only thing standing between the mission and its end.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="engagement" data-category="Crisis">
+            <button class="engagement-summary" type="button" aria-expanded="false">
+              <span class="engagement-rule"></span>
+              <span class="engagement-num">III</span>
+              <span class="engagement-client">Theranos</span>
+              <span class="engagement-matter">Executive counsel and employee-continuity strategy through corporate dissolution</span>
+              <span class="engagement-toggle" aria-hidden="true">&rsaquo;</span>
+            </button>
+            <div class="engagement-detail-wrap">
+              <div class="engagement-detail">
+                <p>The engagement began through counsel and continued in-house: Tali joined Theranos as Senior Vice President of Corporate Communications and Investor Relations. The chief executive was surrounded by men, performing a CEO archetype she had partly constructed &mdash; the black turtlenecks, the veganism, the on-camera stoicism. The work was to separate the company&rsquo;s intellectual property and substance from the founder&rsquo;s persona so the technology could be evaluated independently of the cult-of-CEO narrative she had cultivated; to help her build the executive team a regulated diagnostics company actually required; and to counsel her, in plain language, on the operational basics most consultants will not touch.</p>
+                <p class="lift">We sat with the chief executive and recommended she step down. She did not. We stayed for the two hundred employees, who needed to remain employable when the company ended.</p>
+                <p>Fortress Investment Group&rsquo;s acquisition of the Theranos IP &mdash; sixty-five million dollars &mdash; permanently separated the technology&rsquo;s substance from the founder&rsquo;s prosecution. It is the outcome that survives the legal verdict, and the proof that there was real intellectual property and technology inside the company that the prevailing narrative could not see.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="engagement" data-category="Issues">
+            <button class="engagement-summary" type="button" aria-expanded="false">
+              <span class="engagement-rule"></span>
+              <span class="engagement-num">IV</span>
+              <span class="engagement-client">American Cancer Society</span>
+              <span class="engagement-matter">Donor-affiliation strategy; cancer-screening recommendations</span>
+              <span class="engagement-toggle" aria-hidden="true">&rsaquo;</span>
+            </button>
+            <div class="engagement-detail-wrap">
+              <div class="engagement-detail">
+                <p>Several of the Society&rsquo;s major retail donor partners maintain in-store fundraising for cancer research while continuing to sell cigarettes. One internal and external constituency held that the Society should refuse the money on principle. Another held that the money should be taken precisely because the donor&rsquo;s other business causes the disease the Society fights.</p>
+                <p>We positioned the question around the destination of the funds rather than the source &mdash; that where the money goes is the relevant moral test, not where it comes from &mdash; and preserved the Society&rsquo;s scientific and medical authority as the asset that mattered most, ahead of the donor-purity argument. The affiliations continued; the authority held.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="engagement" data-category="Crisis">
+            <button class="engagement-summary" type="button" aria-expanded="false">
+              <span class="engagement-rule"></span>
+              <span class="engagement-num">V</span>
+              <span class="engagement-client">Skydance Media</span>
+              <span class="engagement-matter">Controversial executive integration into the animation studio</span>
+              <span class="engagement-toggle" aria-hidden="true">&rsaquo;</span>
+            </button>
+            <div class="engagement-detail-wrap">
+              <div class="engagement-detail">
+                <p>An acknowledged dominant figure in commercial animation joined the studio after departing his previous post under Me Too-era allegations. The pressure was not outside the building; it was inside, from an animation team inclined to read the hire skeptically.</p>
+                <p>We counselled inside the building rather than outside it. We recommended elevating a respected woman on the existing team, signalling that the addition would not displace the team&rsquo;s talent path. We recommended a structure that did not place the new hire over direct reports. We built manager talking points and worked with the press to surface stories about the craft and the team&rsquo;s expanded ambition, rather than press around personal history. The friction came off the hire; the workforce stayed.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="engagement" data-category="Advocacy">
+            <button class="engagement-summary" type="button" aria-expanded="false">
+              <span class="engagement-rule"></span>
+              <span class="engagement-num">VI</span>
+              <span class="engagement-client">St. Jude Children&rsquo;s Research Hospital</span>
+              <span class="engagement-matter">Parent and patient activism response</span>
+              <span class="engagement-toggle" aria-hidden="true">&rsaquo;</span>
+            </button>
+            <div class="engagement-detail-wrap">
+              <div class="engagement-detail">
+                <p>The institution&rsquo;s marketing has long promised families they will not pay for their child&rsquo;s cancer treatment. The narrow promise is true. A small but vocal cohort of parents construed the promise more broadly &mdash; mortgages, household expenses, cell-phone bills &mdash; and brought their grievance public. The institution&rsquo;s billion-dollar-a-year fundraising apparatus was at risk.</p>
+                <p>We refined the marketing language so the promise was specific and accurate. We mobilized the institution&rsquo;s most credible witnesses &mdash; families whose children had been treated successfully &mdash; to engage directly with the disgruntled families and the surrounding press cycle. The crisis resolved within months. The fundraising apparatus held. The institution held.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="engagement" data-category="Crisis">
+            <button class="engagement-summary" type="button" aria-expanded="false">
+              <span class="engagement-rule"></span>
+              <span class="engagement-num">VII</span>
+              <span class="engagement-client">Commonwealth of Puerto Rico</span>
+              <span class="engagement-matter">Zika virus outbreak &mdash; tourism economy defense</span>
+              <span class="engagement-toggle" aria-hidden="true">&rsaquo;</span>
+            </button>
+            <div class="engagement-detail-wrap">
+              <div class="engagement-detail">
+                <p>Zika threatened the territory&rsquo;s tourism economy. We worked with the Commonwealth&rsquo;s government and its tourism board on a public-health education campaign with U.S. and Caribbean media, clarifying that Zika presented an acute clinical risk principally to pregnant travelers and communicating the specific precautions that allowed all other tourists to visit safely. The tourism economy was meaningfully protected through the peak-coverage window.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="engagement" data-category="Crisis">
+            <button class="engagement-summary" type="button" aria-expanded="false">
+              <span class="engagement-rule"></span>
+              <span class="engagement-num">VIII</span>
+              <span class="engagement-client">Target</span>
+              <span class="engagement-matter">Data-breach response and in-store pharmacy transition</span>
+              <span class="engagement-toggle" aria-hidden="true">&rsaquo;</span>
+            </button>
+            <div class="engagement-detail-wrap">
+              <div class="engagement-detail">
+                <p>Communications counsel through the credit-card breach response. Subsequently, the pharmacy strategy work: closure of Target-operated in-store pharmacies, transition of the customer base to CVS-operated in-store pharmacies, and pharmacist-side communications through termination and rehire. Operational communications, done quietly; the kind of work that matters because it does not become a crisis.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="engagement" data-category="Crisis">
+            <button class="engagement-summary" type="button" aria-expanded="false">
+              <span class="engagement-rule"></span>
+              <span class="engagement-num">IX</span>
+              <span class="engagement-client">A national hotel group</span>
+              <span class="engagement-matter">Human- and sex-trafficking response across the franchise network</span>
+              <span class="engagement-toggle" aria-hidden="true">&rsaquo;</span>
+            </button>
+            <div class="engagement-detail-wrap">
+              <div class="engagement-detail">
+                <p>The exception to the firm&rsquo;s working belief that most crises stem from mistake rather than intent: franchise operators in this network were not unwittingly involved &mdash; they were active participants. The corporate parent was institutionally horrified; its franchise model gave it indirect operational control of the locations where the activity was occurring. The principal communications task was to hold an honest, accurate picture &mdash; of where the failure originated, of the parent&rsquo;s response, and of the parent&rsquo;s commitment to its broader anti-trafficking posture.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="engagement" data-category="Crisis">
+            <button class="engagement-summary" type="button" aria-expanded="false">
+              <span class="engagement-rule"></span>
+              <span class="engagement-num">X</span>
+              <span class="engagement-client">A regional utility</span>
+              <span class="engagement-matter">Natural-gas leak response</span>
+              <span class="engagement-toggle" aria-hidden="true">&rsaquo;</span>
+            </button>
+            <div class="engagement-detail-wrap">
+              <div class="engagement-detail">
+                <p>Sustained natural-gas leak with community-health implications. Crisis response on behalf of the utility, working in close coordination with regulators, displaced households, and the local press cycle.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="engagement" data-category="Issues">
+            <button class="engagement-summary" type="button" aria-expanded="false">
+              <span class="engagement-rule"></span>
+              <span class="engagement-num">XI</span>
+              <span class="engagement-client">POM Wonderful</span>
+              <span class="engagement-matter">Health-claims defense through FTC and FDA scrutiny</span>
+              <span class="engagement-toggle" aria-hidden="true">&rsaquo;</span>
+            </button>
+            <div class="engagement-detail-wrap">
+              <div class="engagement-detail">
+                <p>Communications strategy through the federal scrutiny of POM Wonderful&rsquo;s health-claims marketing for its pomegranate products. Issues management at the intersection of regulatory action and consumer brand.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="engagement" data-category="Advocacy">
+            <button class="engagement-summary" type="button" aria-expanded="false">
+              <span class="engagement-rule"></span>
+              <span class="engagement-num">XII</span>
+              <span class="engagement-client">University of Washington School of Medicine</span>
+              <span class="engagement-matter">Strategic communications counsel</span>
+              <span class="engagement-toggle" aria-hidden="true">&rsaquo;</span>
+            </button>
+            <div class="engagement-detail-wrap">
+              <div class="engagement-detail">
+                <p>Strategic communications counsel to the medical school across reputation, recruitment, and academic-medical-center positioning.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <p class="engagements-foot reveal">
+          Tali has led or co-led each of these matters across Hill+Knowlton
+          Strategies, Theranos (in-house), Maple Ridge Strategies, Rubenstein,
+          and her current independent practice. Where a client is not named,
+          the choice is theirs.
+        </p>
+      </div>
+    </section>
+
+    <section class="marquee-section" aria-label="Engagement marquee">
+      <span class="marquee-label">Clients we have worked with</span>
+      <div class="marquee-track" id="marqueeTrack">
+        <span class="marquee-item">Theranos</span>
+        <span class="marquee-item">Texas Health Presbyterian</span>
+        <span class="marquee-item">The Trevor Project</span>
+        <span class="marquee-item">American Cancer Society</span>
+        <span class="marquee-item">Skydance Media</span>
+        <span class="marquee-item">St. Jude Children&rsquo;s Research Hospital</span>
+        <span class="marquee-item">Commonwealth of Puerto Rico</span>
+        <span class="marquee-item">Target</span>
+        <span class="marquee-item">POM Wonderful</span>
+        <span class="marquee-item">University of Washington School of Medicine</span>
+        <span class="marquee-item">Theranos</span>
+        <span class="marquee-item">Texas Health Presbyterian</span>
+        <span class="marquee-item">The Trevor Project</span>
+        <span class="marquee-item">American Cancer Society</span>
+        <span class="marquee-item">Skydance Media</span>
+        <span class="marquee-item">St. Jude Children&rsquo;s Research Hospital</span>
+        <span class="marquee-item">Commonwealth of Puerto Rico</span>
+        <span class="marquee-item">Target</span>
+        <span class="marquee-item">POM Wonderful</span>
+        <span class="marquee-item">University of Washington School of Medicine</span>
+      </div>
+    </section>
+
+    <section class="pullquote-section" id="pullquote" data-section="pullquote">
+      <div class="pullquote-inner">
+        <span class="pullquote-eyebrow reveal">What we believe</span>
+        <svg class="pullquote-glyph" id="pullquoteGlyph" viewBox="0 0 56 28" aria-hidden="true">
+          <path d="M8 22 C 8 12, 12 6, 22 4 M30 22 C 30 12, 34 6, 44 4" />
+        </svg>
+        <p class="pullquote-body" id="pullquoteBody" data-text="Most people in a crisis are not acting in bad faith. They are unprepared, watched, and trying to do the right thing in front of an audience. |That is where we step in."></p>
+        <p class="pullquote-attr reveal" data-delay="2">One of the firm&rsquo;s working beliefs.</p>
+      </div>
+    </section>
+
+    <section class="about" id="about" data-section="about">
+      <div class="about-inner">
+        <span class="eyebrow reveal"><span class="eyebrow-diamond"></span>About Tali</span>
+        <h2 class="about-display reveal" data-delay="1">The advisor on the <span class="italic-accent">other</span> end of the call.</h2>
+        <div class="about-prose">
+          <p class="reveal" data-delay="2">
+            Tali Mackay has spent twenty-five years on the other end of the call
+            chief executives, boards, and general counsel make when the next
+            conversation matters most &mdash; first as Executive Vice President
+            and Head of Western Region at Hill+Knowlton Strategies, then as
+            Senior Vice President of Corporate Communications and Investor
+            Relations inside Theranos, then in independent practice. She founded
+            Maple Ridge Advisors to do that work the way she believes it should
+            be done: small, careful, and led by the person you came here to read
+            about.
+          </p>
+          <p class="reveal" data-delay="3">
+            Before any of that, she trained as a nurse &mdash; Master of Science
+            in Nursing from San Francisco State, after a Bachelor of Arts in art
+            history from the University of California, Berkeley. The instinct to
+            care for the person before the situation is not a tagline she
+            adopted later. It is a clinician&rsquo;s instinct, brought to the
+            communications of institutions and the leaders who run them.
+          </p>
+          <p class="reveal" data-delay="4">
+            She is most interested in the question underneath the question
+            &mdash; the why and the why-not, not just the what. She believes that
+            most people in trouble are not acting in bad faith; they are
+            unprepared, watched, and trying their best in front of an audience.
+            That belief shapes how she shows up: calmly, honestly, and almost
+            always early. She works from Los Angeles, by referral, and chooses
+            her engagements one at a time.
+          </p>
+        </div>
+        <p class="about-letter reveal" data-delay="5">
+          &ldquo;I listen for the human under the situation. Then we begin.&rdquo;
+          <span class="about-signature">Tali Mackay</span>
+        </p>
+      </div>
+    </section>
+
+    <section class="contact" id="contact" data-section="contact">
+      <div class="contact-inner">
+        <h2 class="contact-display reveal">We work by <span class="italic-accent">referral</span>.</h2>
+        <div class="contact-detail reveal" data-delay="2">
+          <p>
+            Every engagement begins with a thirty-minute conversation &mdash;
+            no NDA, no deck, no obligation. Just the chance to listen and decide
+            together whether we are the right fit. If someone you trust has
+            pointed you here, please write.
+          </p>
+          <p class="contact-cta-wrap">
+            <a href="mailto:tali@mapleridgeadvisors.com?subject=First%20call%20%E2%80%94%20Maple%20Ridge%20Advisors" class="contact-cta" data-magnetic="true" data-cta="true">
+              <span class="contact-cta-text">Schedule a thirty-minute call</span>
+              <span class="contact-cta-arrow">&rarr;</span>
+            </a>
+          </p>
+          <p class="contact-secondary">
+            Or write to
+            <a href="mailto:tali@mapleridgeadvisors.com">tali@mapleridgeadvisors.com</a>
+            &middot;
+            <a href="https://www.linkedin.com/in/talimackay/" rel="noopener noreferrer" target="_blank">linkedin.com/in/talimackay</a>
+          </p>
+        </div>
+      </div>
+      <p class="contact-coda reveal" data-delay="3">
+        If the worst day has already arrived, please call. If it has not yet,
+        we are also good company before it does.
+      </p>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <img class="footer-watermark" src="assets/monogram@2x.png" alt="">
+    <div class="footer-inner">
+      <div class="footer-lockup">
+        <img src="assets/monogram@2x.png" alt="" class="footer-mono">
+        <span class="footer-mark">
+          <span class="name">Maple Ridge</span>
+          <span class="sub">A&nbsp;d&nbsp;v&nbsp;i&nbsp;s&nbsp;o&nbsp;r&nbsp;s</span>
+        </span>
+      </div>
+      <div class="footer-meta">
+        <div class="footer-meta-row">
+          <span>Independent practice</span>
+          <span class="footer-dot"></span>
+          <span>By referral</span>
+          <span class="footer-dot"></span>
+          <span>Los Angeles</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-fine">
+      <span class="footer-fine-note">This page is a working document; we revise it when we should.</span>
+      <br>
+      &copy; <span id="footer-year">2026</span> Maple Ridge Advisors. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    'use strict';
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isTouch = window.matchMedia('(hover: none)').matches;
+
+    /* Hero per-character split, with per-line wrapper for clip-path unmask.
+       Each line is its own .hero-line node; each word is a .word; each char a .char.
+       The italic accent word picks up its own underline class once lit. */
+    const splitHero = (el) => {
+      let text = el.dataset.text || el.textContent;
+      // Mark "already" as italic
+      text = text.replace(' already ', ' ~already~ ');
+      el.textContent = '';
+      const lines = text.split('|');
+      lines.forEach((line) => {
+        const lineWrap = document.createElement('span');
+        lineWrap.className = 'hero-line';
+        const tokens = line.trim().split(/(\s+)/);
+        tokens.forEach((token) => {
+          if (/^\s+$/.test(token)) {
+            lineWrap.appendChild(document.createTextNode(' '));
+            return;
+          }
+          let isItalic = false;
+          let word = token;
+          if (word.startsWith('~') && word.endsWith('~')) {
+            isItalic = true;
+            word = word.slice(1, -1);
+          }
+          const wordSpan = document.createElement('span');
+          wordSpan.className = 'word';
+          if (isItalic) wordSpan.classList.add('italic-accent');
+          for (let i = 0; i < word.length; i++) {
+            const charSpan = document.createElement('span');
+            charSpan.className = 'char';
+            charSpan.textContent = word[i];
+            wordSpan.appendChild(charSpan);
+          }
+          lineWrap.appendChild(wordSpan);
+        });
+        el.appendChild(lineWrap);
+      });
+    };
+
+    const heroDisplay = document.getElementById('heroDisplay');
+    if (heroDisplay) splitHero(heroDisplay);
+
+    /* Dossier curtain — fades up the wordmark for ~1.3s, then lifts.
+       Reduced-motion skips the curtain entirely (CSS already hides it). */
+    const dossier = document.getElementById('dossierCurtain');
+    if (dossier && !prefersReducedMotion) {
+      requestAnimationFrame(() => {
+        dossier.classList.add('ready');
+      });
+      setTimeout(() => dossier.classList.add('lift'), 1400);
+      setTimeout(() => dossier.classList.add('gone'), 2400);
+    } else if (dossier) {
+      dossier.classList.add('gone');
+    }
+
+    /* Page-load choreography — staggered so the hero text reveals after the curtain lifts. */
+    const heroStart = prefersReducedMotion ? 100 : 1500;
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const eyebrow = document.querySelector('.hero-eyebrow');
+        if (eyebrow) eyebrow.classList.add('in-view');
+      }, heroStart - 200);
+
+      // Unmask each hero line, then ripple the characters up under it.
+      const heroLines = heroDisplay ? heroDisplay.querySelectorAll('.hero-line') : [];
+      heroLines.forEach((line, li) => {
+        setTimeout(() => line.classList.add('unmasked'), heroStart + li * 180);
+      });
+
+      const chars = heroDisplay ? heroDisplay.querySelectorAll('.char') : [];
+      chars.forEach((char, i) => {
+        setTimeout(() => char.classList.add('shown'), heroStart + 80 + i * 14);
+      });
+
+      // Sage underline draws under the italic accent word after it lands.
+      const italicAccent = heroDisplay ? heroDisplay.querySelector('.italic-accent') : null;
+      if (italicAccent) {
+        const totalChars = chars.length;
+        const accentEnd = heroStart + 80 + totalChars * 14;
+        setTimeout(() => italicAccent.classList.add('underline-drawn'), accentEnd + 220);
+      }
+
+      const heroRight = document.querySelector('.hero-right');
+      if (heroRight) setTimeout(() => heroRight.classList.add('in-view'), heroStart + 700);
+
+      setTimeout(() => {
+        const wm = document.getElementById('heroWatermark');
+        const hint = document.getElementById('heroScrollHint');
+        if (wm) wm.classList.add('ready');
+        if (hint) hint.classList.add('ready');
+      }, heroStart + 1100);
+
+      setTimeout(() => {
+        const rail = document.getElementById('sectionRail');
+        const margin = document.getElementById('marginRule');
+        if (rail) rail.classList.add('ready');
+        if (margin) margin.classList.add('ready');
+      }, heroStart + 1500);
+    });
+
+    /* Scroll-triggered reveals */
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -80px 0px' });
+
+    document.querySelectorAll('.reveal, .eyebrow:not(.hero-eyebrow), .about-letter, .bleed').forEach(el => {
+      if (el.classList.contains('hero-right')) return;
+      revealObserver.observe(el);
+    });
+
+    /* Pull-quote word-by-word reveal, with the SVG quote glyph drawing in first. */
+    const pullquoteBody = document.getElementById('pullquoteBody');
+    const pullquoteGlyph = document.getElementById('pullquoteGlyph');
+    if (pullquoteBody) {
+      const text = pullquoteBody.dataset.text;
+      pullquoteBody.textContent = '';
+      const lines = text.split('|');
+      lines.forEach((line, li) => {
+        const tokens = line.trim().split(/(\s+)/);
+        tokens.forEach((token) => {
+          if (/^\s+$/.test(token)) {
+            pullquoteBody.appendChild(document.createTextNode(' '));
+            return;
+          }
+          const word = document.createElement('span');
+          word.className = 'word-reveal';
+          if (li === 1) {
+            const em = document.createElement('em');
+            em.textContent = token;
+            word.appendChild(em);
+          } else {
+            word.textContent = token;
+          }
+          pullquoteBody.appendChild(word);
+        });
+        if (li < lines.length - 1) {
+          pullquoteBody.appendChild(document.createElement('br'));
+        }
+      });
+
+      const wordEls = pullquoteBody.querySelectorAll('.word-reveal');
+      const pqObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            if (pullquoteGlyph) pullquoteGlyph.classList.add('shown');
+            // Slower stagger (~110ms per word) with a small head-start so the glyph reads first.
+            wordEls.forEach((w, i) => {
+              setTimeout(() => w.classList.add('shown'), 380 + i * 110);
+            });
+            pqObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.45 });
+      pqObserver.observe(pullquoteBody);
+    }
+
+    /* Reading progress + manuscript margin rule. The top bar tracks the whole document;
+       the side rule grows vertically and feels like a printed book's margin line. */
+    const progressBar = document.getElementById('progressBar');
+    const marginRule = document.getElementById('marginRule');
+    let progressRaf = 0;
+    const updateProgress = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      if (progressBar) progressBar.style.width = progress + '%';
+      if (marginRule) {
+        const vh = window.innerHeight;
+        // The margin line tracks viewport position within the document, capped to viewport height.
+        const target = Math.min(vh, scrollTop * 0.6 + 80);
+        marginRule.style.height = target + 'px';
+      }
+    };
+    const onScrollProgress = () => {
+      if (progressRaf) return;
+      progressRaf = requestAnimationFrame(() => {
+        updateProgress();
+        progressRaf = 0;
+      });
+    };
+    window.addEventListener('scroll', onScrollProgress, { passive: true });
+    window.addEventListener('resize', onScrollProgress, { passive: true });
+    updateProgress();
+
+    /* Top-nav morph */
+    const topnav = document.getElementById('topnav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 80) topnav.classList.add('scrolled');
+      else topnav.classList.remove('scrolled');
+    }, { passive: true });
+
+    /* Magnetic CTA */
+    if (!isTouch && !prefersReducedMotion) {
+      document.querySelectorAll('[data-magnetic="true"]').forEach(el => {
+        const strength = 0.25;
+        const radius = 100;
+        el.addEventListener('mousemove', (e) => {
+          const rect = el.getBoundingClientRect();
+          const cx = rect.left + rect.width / 2;
+          const cy = rect.top + rect.height / 2;
+          const dx = e.clientX - cx;
+          const dy = e.clientY - cy;
+          const dist = Math.sqrt(dx*dx + dy*dy);
+          if (dist < radius) {
+            el.style.transform = 'translate(' + (dx * strength) + 'px, ' + (dy * strength) + 'px)';
+          } else {
+            el.style.transform = '';
+          }
+        });
+        el.addEventListener('mouseleave', () => {
+          el.style.transform = '';
+        });
+      });
+    }
+
+    /* Engagement expansion */
+    const engagementsList = document.getElementById('engagementsList');
+    document.querySelectorAll('.engagement-summary').forEach(summary => {
+      summary.addEventListener('click', () => {
+        const eng = summary.closest('.engagement');
+        const wasOpen = eng.classList.contains('open');
+        document.querySelectorAll('.engagement.open').forEach(e => {
+          if (e !== eng) {
+            e.classList.remove('open');
+            e.querySelector('.engagement-summary').setAttribute('aria-expanded', 'false');
+          }
+        });
+        eng.classList.toggle('open');
+        summary.setAttribute('aria-expanded', eng.classList.contains('open') ? 'true' : 'false');
+        if (document.querySelectorAll('.engagement.open').length > 0) {
+          engagementsList.classList.add('has-open');
+        } else {
+          engagementsList.classList.remove('has-open');
+        }
+      });
+    });
+
+    /* Filter */
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.engagement').forEach(e => {
+          if (filter === 'all' || e.dataset.category === filter) {
+            e.classList.remove('is-hidden');
+          } else {
+            e.classList.add('is-hidden');
+          }
+        });
+      });
+    });
+
+    /* Section rail + nav active */
+    const sections = document.querySelectorAll('[data-section]');
+    const railDots = document.querySelectorAll('.rail-dot');
+    const navLinks = document.querySelectorAll('.topnav-link[data-nav]');
+
+    railDots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        const target = document.getElementById(dot.dataset.target);
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    const navObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const section = entry.target.dataset.section;
+          railDots.forEach(d => d.classList.toggle('active', d.dataset.target === section));
+          navLinks.forEach(l => l.classList.toggle('active', l.dataset.nav === section));
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+    sections.forEach(s => navObserver.observe(s));
+
+    /* Belief sticky storyteller — cross-fade between beliefs as you scroll the pinned track,
+       and parallax the giant background numeral slower than the scroll.
+       Single source of truth: a scroll handler picks the "current" belief by progress
+       through the .beliefs-track, then sets .active on it and .leaving on the previous. */
+    const beliefsTrack = document.getElementById('beliefsTrack');
+    const beliefStickies = Array.from(document.querySelectorAll('.belief-sticky'));
+    const beliefs = beliefStickies.map(s => s.querySelector('.belief'));
+    let beliefRaf = 0;
+    let lastBeliefIdx = -1;
+
+    const updateBeliefs = () => {
+      if (!beliefsTrack || beliefStickies.length === 0) return;
+      const rect = beliefsTrack.getBoundingClientRect();
+      const vh = window.innerHeight;
+      const total = rect.height - vh;
+      // progress 0..1 across the pinned region
+      const p = Math.min(1, Math.max(0, (-rect.top) / Math.max(1, total)));
+      const idx = Math.min(beliefStickies.length - 1, Math.floor(p * beliefStickies.length));
+
+      if (idx !== lastBeliefIdx) {
+        beliefStickies.forEach((s, i) => s.classList.toggle('is-active', i === idx));
+        beliefs.forEach((b, i) => {
+          if (!b) return;
+          if (i === idx) {
+            b.classList.add('active');
+            b.classList.remove('leaving');
+          } else if (i < idx) {
+            b.classList.remove('active');
+            b.classList.add('leaving');
+          } else {
+            b.classList.remove('active', 'leaving');
+          }
+        });
+        lastBeliefIdx = idx;
+      }
+
+      if (!prefersReducedMotion) {
+        // Slow parallax on the giant background numeral — moves at 0.35x scroll, capped.
+        beliefStickies.forEach((s) => {
+          const sr = s.getBoundingClientRect();
+          const offset = (sr.top - vh / 2) * 0.18;
+          const num = s.querySelector('.belief-bg-num');
+          if (num) num.style.setProperty('--parallax', offset.toFixed(1) + 'px');
+        });
+      }
+    };
+    const onScrollBeliefs = () => {
+      if (beliefRaf) return;
+      beliefRaf = requestAnimationFrame(() => {
+        updateBeliefs();
+        beliefRaf = 0;
+      });
+    };
+    window.addEventListener('scroll', onScrollBeliefs, { passive: true });
+    window.addEventListener('resize', onScrollBeliefs, { passive: true });
+    updateBeliefs();
+
+    /* Footer year */
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+    /* Keyboard section jump */
+    document.addEventListener('keydown', (e) => {
+      if (e.target.matches('input, textarea, [contenteditable]')) return;
+      const order = ['hero','practice','beliefs','bleed','engagements','pullquote','about','contact'];
+      const active = document.querySelector('.rail-dot.active');
+      if (!active) return;
+      const idx = order.indexOf(active.dataset.target);
+      let nextIdx = null;
+      if ((e.key === 'ArrowDown' || e.key === 'PageDown') && idx < order.length - 1) nextIdx = idx + 1;
+      if ((e.key === 'ArrowUp' || e.key === 'PageUp') && idx > 0) nextIdx = idx - 1;
+      if (nextIdx !== null) {
+        e.preventDefault();
+        const target = document.getElementById(order[nextIdx]);
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  })();
+  </script>
+
+</body>
+</html>
